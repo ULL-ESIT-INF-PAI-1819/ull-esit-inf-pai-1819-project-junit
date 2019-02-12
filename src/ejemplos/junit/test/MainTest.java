@@ -9,13 +9,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.Arguments;
-import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.jupiter.params.provider.ValueSource;
-
-import com.sun.jdi.connect.Connector.Argument;
-
-import java.util.function.*;
 
 class MainTest {
 
@@ -47,31 +41,24 @@ class MainTest {
     void testParametrizado(int a) {
         assertEquals(a, 2);
     }
-    
+
     @Test
-    void testNotEqual() {
+    void testEquality() {
         char a = 'a';
         char b = 'b';
         assertNotEquals(a, b);
         assertEquals(a, a);
     }
 
-    static Arguments define() {
-        Integer a = new Integer(1);
-        Float   b = new Float(1.0);
-        return Arguments.of(a, b);
-    }
-
-    @ParameterizedTest
-    @MethodSource("define")
-    void testNoSonElMismoObjeto(Integer a, Float b) {
-        assertNotSame(a, b);
-    }
-
-    @ParameterizedTest
-    @MethodSource("define") 
-    void testTienenElMismoValor(Integer a, Float b) {
+    @Test
+    void testSame() {
+        Integer a = Integer.valueOf(1);
+        Integer b = Integer.valueOf(1);
+        Integer c = Integer.valueOf(2);
         assertEquals(a, b);
+        assertNotEquals(c, b);
+        assertNotSame(a, c);
+        assertSame(a, a);
     }
 
     @AfterEach
