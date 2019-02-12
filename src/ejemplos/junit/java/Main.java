@@ -1,8 +1,5 @@
-package ejemplos.junit;
+package ejemplos.junit.java;
 
-/**
- *
- */
 public class Main {
 
     public static void main(String[] args) {
