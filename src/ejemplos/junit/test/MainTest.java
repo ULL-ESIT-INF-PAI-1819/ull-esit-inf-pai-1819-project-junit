@@ -1,12 +1,15 @@
 package ejemplos.junit.test;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assumptions.assumeTrue;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -26,6 +29,7 @@ class MainTest {
     @DisplayName("Test: diferentes")
     @Test
     void testIguales() {
+    	assumeTrue(false, "pues va a ser que no");
         assertNotEquals(5, 10);
     }
 
@@ -63,12 +67,27 @@ class MainTest {
 
     @AfterEach
     void alFinalDeCadaTest() {
-        System.out.println("Después de test");
+        System.out.println("Despuï¿½s de test");
     }
 
     @AfterAll
     static void alFinalDeTodosLosTests() {
         System.out.println("Final de todos los tests");
+    }
+    
+    @Nested
+    class nestedTest {
+    	@DisplayName("Test: iguales")
+        @Test
+        void testIguales2() {
+            assertEquals(5, 5, "ejemplo");
+        }
+    	
+    	@DisplayName("Test: diferentes")
+        @Test
+        void testNoIguales2() {
+            assertNotEquals(5, 5, "ejemplo");
+        }
     }
 
     // TODO: mirar @TestFactory y @TestTemplate
