@@ -4,19 +4,6 @@
 
 [TOC]
 
-
-- Introducción: ¿qué son y para qué sirven las pruebas unitarias?
-- ¿Qué es JUnit?
-- ¿Cómo está estructurado JUnit? Explicar la versión 5: Platform, Jupiter, Vintage
-- Ejemplo simple: cómo se escribe un test
-  - Anotaciones
-  - Aserciones
-  - Salida
-  - Etiquetas
-- Diferencias con versión anterior. 
-- Desarrollo dirigido por pruebas.
-
-
 ## Pruebas unitarias
 
 Las pruebas unitarias son comprobaciones de fragmentos de código claramente delimitados, lo que comúnmente asociamos con funciones o métodos. A pesar de esto, lo normal es que, para asegurarnos de tener un código de calidad, se hagan pruebas unitarias del programa completo. Cada una de estas pruebas consiste en asegurarnos de que un fragmento de código da el resultado que nosotros esperemos que dé. Además, también es normal realizar pruebas de excepciones que podrían saltar y otros comportamientos esperados que no tienen que estar relacionados estrictamente con el resultado.
@@ -96,7 +83,7 @@ Hay casos en los que quizás sea más fácil determinar las condiciones de un fa
 
 Con está opción podemos proporcionar un mensaje de error (con una *String* o un *`Supplier<String>`*) o la causa subyacente con un *Throwable*.
 
-#### `Otras aserciones`
+#### Otras aserciones
 
 Además de las mencionadas en el documento hay otras aserciones (e incluso otras sobrecargas de estas aserciones) que recomendamos que vean[^consultar_API]. Entre las aserciones que faltan se encontrarán con algunas para detectar las excepciones y otras para determinar el tiempo que se espera de la ejecución de un código.
 
@@ -104,7 +91,7 @@ Además de las mencionadas en el documento hay otras aserciones (e incluso otras
 
 ### Anotaciones
 
-:question: Qué es una anotación?
+:question: Qué es una anotación? mencionar las experimentales
 
 #### Tests
 
@@ -117,10 +104,6 @@ void testIguales() {
 }
 ```
 
-:::info
-Hey
-:::
-   
 #### Tests parametrizados (usando @ValueSource) :question:
 
 <!-- Revisar -->
@@ -154,10 +137,46 @@ void testParametrizado(int a) {
 #### Ejecución de métodos antes y después de otros tests
 
 JUnit nos proporciona algunas anotaciones para ejecutar instrucciones antes y después de las pruebas. Además, también nos permite decidir si ejecutarlas una vez antes de cada una de las pruebas o una única vez.
+
+#### Desactivar pruebas
+
+En JUnit es posible escribir pruebas pero evitar que sean ejecutadas. Resulta más cómodo que comentarlo o quitar su correspondiente anotación, ya que se podría confundir con otros métodos que nunca han sido tests. De está forma podemos bloquear temporalmente su ejecución de forma más limpia. En el caso de usarlo con clases se desactivan todas las pruebas incluidas en ellas. Lo único que hay que hacer es poner la anotación `@Disabled`. Además, podemos indicar con una cadena de texto el motivo por el que está desactivado.
+
+#### Customizar los nombres de las pruebas
+
+Por defecto, las pruebas se identifican en la salida por el nombre del método, pero quizás sería más claro si se redactará con espacios u otros símbolos que un método no te permite usar. Para ello podemos utilizar `@DisplayName` tanto para métodos como para clases.
+
+#### Pruebas encadenadas
+
+Hasta ahora todas las pruebas estaban al mismo nivel, no podiamos establecer una jerarquía. Realmente si es posible. Dentro de la clase principal podemos crear otra con la anotación `@Nested` para especificar que esa clase también contiene pruebas. Si no lo especificaramos simplemente se ignoraría.
+
+Una práctica muy común es utilizar este encadenamiento para formar frases en relación con el nombre sus métodos y con el nombre de la clase superior. De esta forma se puede leer de forma fluida que es lo que representa cada prueba. 
+
+Sin embargo, no es una regla fija y puede usarse de la forma que se vea conveniente. En el fondo es una forma de agrupar pruebas de forma que se aprecie visualmente en la salida.
     
 ### Asunciones
 
+Son un conjunto de métodos que permiten abortar tests si no se cumple una condición que se tenía asumido que pasaría. Se creó pensando en aquellos casos en los que las pruebas no tuvieran sentido para un determinado supuesto.
+
+#### `assumeTrue`, `assumeFalse`
+
+Comprueba que una expresión booleana es verdadera o falsa, de lo contrario lanzará la excepción *TestAbortedException*, evitando que se ejecuten el resto de tests. También es posible pasarle como parámetro un `String` o `Supplier<String>` como mensaje de la excepción. Además, también permite usar `BooleanSupplier` en vez de un valor `boolean`.
+
+#### `assumingThat`
+
+Hay casos en los que no queremos que deje de ejecutar esas pruebas sino que necesitamos que haga algo antes de continuar. Para eso usamos `assumingThat`, que comprueba una condición booleana y ejecuta un `Executable` en el caso de que se dicha condición se valide.
+
 ### Salida
+
+#### Eclipse
+
+#### Terminal
+
+## Diferencias con versión anterior
+
+
+## Desarrollo dirigido por pruebas
+
 
 ## Referencias
 
