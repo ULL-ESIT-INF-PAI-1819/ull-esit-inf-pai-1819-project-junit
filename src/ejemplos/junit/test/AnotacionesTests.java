@@ -21,6 +21,11 @@ public class AnotacionesTests {
         System.out.println("Ejecutando " + info.getDisplayName());
     }
     
+    @AfterAll
+    static void alFinalDeTodos() {
+        System.out.println("Test completados");
+    }
+    
     private String modifica(String entrada) {
         return entrada + 1;
     }
