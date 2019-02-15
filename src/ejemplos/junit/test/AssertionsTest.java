@@ -7,7 +7,6 @@ import static org.junit.jupiter.api.Assumptions.assumingThat;
 
 import java.time.Duration;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Vector;
 
@@ -18,8 +17,8 @@ class AssertionsTest {
 	@Test
 	void estandarComprobaciones() {
 		assertTrue(true);
-		assertTrue(false,"Esto ta' mal");
-		assertTrue(false,() -> "Esto ta' muuuy mal");
+		assertTrue(true,"Esto está mal");
+		assertTrue(false,() -> "Esto está mal, pero con supplier.");
 	}
 	
 	@Test
@@ -40,7 +39,8 @@ class AssertionsTest {
 	@Test
 	void comprobacionesDeIgualdades() {
 		assertEquals("prueba", "prueba");
-		assertNotEquals("prueba", "prueba2");
+		assertNotEquals("prueba", "prueba diferente");
+		assertNotEquals(5, 7);
 		
 		String a = "prueba";
 		assertSame(a, a);
@@ -65,12 +65,12 @@ class AssertionsTest {
 	void comprobacionesDeExcepciones() {
 		assertThrows(ArrayIndexOutOfBoundsException.class, () -> {
 			int[] a = { 1, 2, 3, 4 };
-			System.out.println(a[5] + 2);
+			System.out.println(a[5]);
 		});
 		
 		assertAll(() -> {
-			String a = "Esto no debería dar error";
-			String b = a.concat(" pero podría darlo.");
+			int[] a = { 1, 2, 3, 4 };
+			System.out.println(a[2]);
 		}, () -> {
 			System.out.print("No se me ocurre de que hacer las pruebas");
 		});
@@ -79,15 +79,20 @@ class AssertionsTest {
 	@Test
 	void comprobacionesDeTiempoDeEjecución() {
 		assertTimeout(Duration.ofMillis(500), () -> {
+			int total = 0;
 			for(int i = 0; i < 10000; i++) {
-				System.out.println("esto tarda bastante, pero suific");
+				total += i;
+				//System.out.println(i);
 			}
 		});
 		assertTimeoutPreemptively(Duration.ofMillis(500), () -> {
+			int total = 0;
 			for(int i = 0; i < 2147483647; i++) {
-				System.out.println(i);
+				total += i;
+				//System.out.println(i);
 			}
 		});
+		
 	}
 
 	@Test
@@ -99,6 +104,7 @@ class AssertionsTest {
 	void asuncionesBooleanas() {
 		assumeTrue(true);
 		assumeFalse(false);
+		
 		assertNull(null);
 	}
 	
