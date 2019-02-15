@@ -16,10 +16,15 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 public class AnotacionesTests {
 
+    @BeforeEach
+    void antesDeCadaUno(TestInfo info) {
+        System.out.println("Ejecutando " + info.getDisplayName());
+    }
+    
     private String modifica(String entrada) {
         return entrada + 1;
     }
-    
+
     @Test
     public void testDeEjemplo() {
         assertTrue(true);
@@ -34,24 +39,24 @@ public class AnotacionesTests {
     }
 
     /* Fabrica de tests */
-    
+
     @TestFactory
     public Stream<DynamicTest> testsDinamicos() {
-        List<String>            ejemploEntrada = new ArrayList<>(
-                Arrays.asList("Hola", "que", "tal"));
-        List<String>            ejemploSalida  = new ArrayList<>(
-                Arrays.asList("Hola1", "que1", "tal1"));
-        Collection<DynamicTest> setDeTests     = new ArrayList<>();
-        
+        List<String> ejemploEntrada =
+                new ArrayList<>(Arrays.asList("Hola", "que", "tal"));
+        List<String> ejemploSalida =
+                new ArrayList<>(Arrays.asList("Hola1", "que1", "tal1"));
+        Collection<DynamicTest> setDeTests = new ArrayList<>();
+
         for (int i = 0; i < ejemploEntrada.size(); i++) {
-            String      entrada      = ejemploEntrada.get(i);
-            String      salida       = ejemploSalida.get(i);
-            Executable  aserto       = () -> assertEquals(salida, modifica(entrada));
-            String      nombreTest   = "Añade 1 al final de la palabra '" + entrada + "'";
+            String entrada = ejemploEntrada.get(i);
+            String salida = ejemploSalida.get(i);
+            Executable aserto = () -> assertEquals(salida, modifica(entrada));
+            String nombreTest = "Añade 1 al final de la palabra '" + entrada + "'";
             DynamicTest testDinamico = DynamicTest.dynamicTest(nombreTest, aserto);
             setDeTests.add(testDinamico);
         }
-        
+
         return setDeTests.stream();
     }
 
@@ -64,6 +69,11 @@ public class AnotacionesTests {
     @DisplayName("Este test")
     @Nested
     class otroTipoDeTests {
+
+        @BeforeEach
+        void antesDeCadaUno(TestInfo info) {
+            System.out.println("CLASE ANIDADA! -- " + info.getDisplayName());
+        }
 
         @DisplayName("comprueba algo")
         @Test
