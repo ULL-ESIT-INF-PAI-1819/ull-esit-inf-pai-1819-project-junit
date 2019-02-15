@@ -146,12 +146,6 @@ Tipo de valores | Nomenclatura
 `String[] `|` strings`
 `Class[] `|` classes`
 
-También podemos usar otras dos etiquetas que nos permiten proveer al método prueba valores vacíos y nulos, especialmente útiles para comprobar como reacciona nuestro programa ante diferentes entradas: 
-
-- `@NullSource` provee un valor `null` a cualquier parámetro que no sea una primitiva
-- `@EmptySource` provee valores vacíos para `String`, `List`, `Set`, `Map`, arrays primitivos (`int[]`, `char[][]`), arrays de objetos (`String[]`), etc.
-- `@NullAndEmptySource` es una combinación de las dos anteriores.
-
 :::info
 Consulta la API de JUnit en el apartado [*Source of Arguments*](https://junit.org/junit5/docs/current/user-guide/#writing-tests-parameterized-tests-sources) para ver otras maneras de dar valores a los parámetros de los tests.
 :::
