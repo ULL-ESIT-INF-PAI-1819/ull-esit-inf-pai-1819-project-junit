@@ -9,13 +9,14 @@ import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import org.junit.jupiter.api.Test;
 
 class AssertionsTest {
 
 	@Test
-	void estandarComprobaciones() {
+	void comprobacionesConMensajesDeError() {
 		assertTrue(true);
 		assertTrue(true,"Esto está mal");
 		assertTrue(false,() -> "Esto está mal, pero con supplier.");
@@ -26,6 +27,7 @@ class AssertionsTest {
 		int a = 5;
 		assertTrue(a == 5);
 		assertFalse(a < 2);
+		assertFalse(() -> (a < 2));
 	}
 
 	@Test
@@ -39,6 +41,7 @@ class AssertionsTest {
 	@Test
 	void comprobacionesDeIgualdades() {
 		assertEquals("prueba", "prueba");
+		assertEquals(5, 5);
 		assertNotEquals("prueba", "prueba diferente");
 		assertNotEquals(5, 7);
 		
@@ -77,7 +80,7 @@ class AssertionsTest {
 	}
 
 	@Test
-	void comprobacionesDeTiempoDeEjecución() {
+	void comprobacionesDeTiempoDeEjecucion() {
 		assertTimeout(Duration.ofMillis(500), () -> {
 			int total = 0;
 			for(int i = 0; i < 10000; i++) {
@@ -92,12 +95,19 @@ class AssertionsTest {
 				//System.out.println(i);
 			}
 		});
-		
 	}
 
 	@Test
 	void fallosIncondicionales() {
 		fail("Falla porque lo digo yo.");
+	}
+	
+	@Test
+	void fallosIncondicionalesConThrowable() {
+		int a = -1;
+		if(a < 0) { 
+			fail(new IllegalArgumentException());
+		}
 	}
 	
 	@Test 
