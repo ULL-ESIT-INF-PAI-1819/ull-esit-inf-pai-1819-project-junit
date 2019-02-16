@@ -26,7 +26,7 @@ JUnit es uno de los frameworks más famosos para hacer tests unitarios de progra
 
 La versión más reciente de JUnit divide el framework en tres paquetes distintos:
 
-- **JUnit Jupiter.** API para escribir tests que además contiene un motor que los entiende.
+- **JUnit Jupiter.** API para escribir tests que además contiene un motor que los entiende y es capaz de ejecutarlos.
 - **JUnit Vintage.** Igual que Jupiter pero para tests escritos con versiones anteriores de JUnit.
 - **JUnit Platform.** Es la base de JUnit. Presta soporte para la implementación de motores que ejecuten alguna clase de tests.
 
@@ -101,7 +101,7 @@ void comprobacionesDeNulos() {
 
 #### `assertEquals()`, `assertNotEquals()`
 
-Comprueba si dos variables tienen el mismo valor o no. En este caso hay una diferencia entre ambos casos. `assertEquals()` funciona con todos los tipos primitivos y con cualquier objeto (por lo que es recomendable sobrecargar el método `equals()` para que asegurarnos de que la comparación es la correcta), mientras que `assertNotEquals()` sólo funciona con la clase `Object`.
+Comprueba si dos variables tienen el mismo valor o no. En este caso hay una diferencia entre ambos casos. `assertEquals()` funciona con todos los tipos primitivos y con cualquier objeto (por lo que es recomendable sobrecargar el método `equals()` para asegurarnos de que la comparación es la correcta), mientras que `assertNotEquals()` sólo funciona con la clase `Object`.
 
 Sin embargo, desde la versión 1.5 de Java se hace el casteo automático de los tipos primitivos a sus respectivas clases. Por lo tanto, aparentemente funcionarán igual aunque internamente no hagan lo mismo.
 
@@ -183,7 +183,7 @@ void comprobacionesDeExcepciones() {
 
 #### `assertTimeout()`, `assertTimeoutPreemptively()`
 
-Ambas opciones permiten comprobar el tiempo que tarda en ejecutarse un fragmento de código en milisegundo. Para ello requiere que le pasemos el tiempo máximo que estimamos que debería tardar. La diferencia es que `assertTimeout` se ejecutará en el mismo hilo en el que fue llamado, por lo que si sobrapasa el tiempo estimado tendremos que esperar a que termine igualmente. Con `assertTimeoutPreemptively`, al ejecutarse en otro hilo, se aborta su ejecución si sobrepasa dicho tiempo.
+Ambas opciones permiten comprobar el tiempo que tarda en ejecutarse un fragmento de código. Para ello requiere que le pasemos el tiempo máximo que estimamos que debería tardar con un objeto de tipo `Duration`. La diferencia es que `assertTimeout` se ejecutará en el mismo hilo en el que fue llamado, por lo que si sobrapasa el tiempo estimado tendremos que esperar a que termine igualmente. Con `assertTimeoutPreemptively`, al ejecutarse en otro hilo, se aborta su ejecución si sobrepasa dicho tiempo.
 
 ```java 
 @Test
@@ -269,9 +269,9 @@ void asuncionesConEjecuciones() {
 
 Las anotaciones en Java son metadatos que proporcionan información al compilador sobre el programa, aunque no tengan efecto directo sobre él. Pueden ser utilizadas con clases, métodos, metadatos, campos, parámetros, variables locales, y paquetes.
 
-Las capacidades de las anotaciones no están claramente delimitadas. Algunas permiten decir al compilador que no te muestre unos determinados warnings (`@SuppressWarnings`), otros te permiten informar opcionalmente de que un método es una sobrecarga de otro (`@Override`) o algunas puede indicar a herramientas externas como tienen que actuar respecto a ese código (`@Test`).
+Las capacidades de las anotaciones no están claramente delimitadas. Una te permite decir al compilador que no te muestre unos determinados warnings (`@SuppressWarnings`), otra te permite informar opcionalmente de que un método es una sobrecarga de otro (`@Override`) y otras pueden indicar a herramientas externas como tienen que actuar respecto a ese código (`@Test`).
 
-Lo que si sabemos es como nombrarlas. Simplemente se colocará un @ antes.
+Para declarar una anotación se coloca un @ antes del nombre.
 
 En el caso de JUnit se utilizan las etiquetas para configurar los tests. Ahora veremos el funcionamiento de las más importantes.
 
@@ -523,7 +523,7 @@ Gris               | Test desactivado (cuenta como *skipped)*
 Papel con símbolo de abortado gris | Asunción fallida (cuenta como *skipped)*
 Verde              | Test correcto
 Amarillo con cruz azul | Test fallido
-Rojo               | Test no compilado correctamente
+Rojo               | Test no escrito correctamente
 Hoja de papel      | Representa una agrupación de tests, ya sea porque son tests parametrizados o porque están dentro de una clase anidada. La cruz que aparecerá depende de si todos los tests se ejecutaron correctamente (verde) o si hubo fallos (azul)
 
 :::warning
