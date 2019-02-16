@@ -34,7 +34,7 @@
 </head>
 
 <body>
-    <div id="doc" class="markdown-body container-fluid comment-enabled"><h1 id="JUnit"><a class="anchor hidden-xs" href="#JUnit" title="JUnit"><span class="octicon octicon-link"></span></a>JUnit</h1><h2 id="Contenido"><a class="anchor hidden-xs" href="#Contenido" title="Contenido"><span class="octicon octicon-link"></span></a>Contenido</h2><p><span class="toc"><ul>
+    <div id="doc" class="markdown-body container-fluid comment-enabled" style="position: relative;"><h1 id="JUnit"><a class="anchor hidden-xs" href="#JUnit" title="JUnit"><span class="octicon octicon-link"></span></a>JUnit</h1><h2 id="Contenido"><a class="anchor hidden-xs" href="#Contenido" title="Contenido"><span class="octicon octicon-link"></span></a>Contenido</h2><p><span class="toc"><ul>
 <li><a href="#JUnit" title="JUnit">JUnit</a><ul>
 <li><a href="#Contenido" title="Contenido">Contenido</a></li>
 <li><a href="#Pruebas-unitarias" title="Pruebas unitarias">Pruebas unitarias</a></li>
@@ -43,30 +43,17 @@
 <li><a href="#Como-ejecutar-los-tests-desde-la-terminal-sin-ningún-IDE" title="Como ejecutar los tests desde la terminal, sin ningún IDE">Como ejecutar los tests desde la terminal, sin ningún IDE</a></li>
 <li><a href="#Cómo-se-escribe-un-test" title="Cómo se escribe un test">Cómo se escribe un test</a><ul>
 <li><a href="#Aserciones" title="Aserciones">Aserciones</a></li>
-<li><a href="#Anotaciones" title="Anotaciones">Anotaciones</a></li>
 <li><a href="#Asunciones" title="Asunciones">Asunciones</a></li>
+<li><a href="#Anotaciones" title="Anotaciones">Anotaciones</a></li>
 <li><a href="#Salida" title="Salida">Salida</a></li>
 </ul>
 </li>
+<li><a href="#Desarrollo-dirigido-por-pruebas" title="Desarrollo dirigido por pruebas">Desarrollo dirigido por pruebas</a></li>
 <li><a href="#Referencias" title="Referencias">Referencias</a></li>
 </ul>
 </li>
 </ul>
-</span></p><ul>
-<li>Introducción: ¿qué son y para qué sirven las pruebas unitarias?</li>
-<li>¿Qué es JUnit?</li>
-<li>¿Cómo está estructurado JUnit? Explicar la versión 5: Platform, Jupiter, Vintage</li>
-<li>Ejemplo simple: cómo se escribe un test
-<ul>
-<li>Anotaciones</li>
-<li>Aserciones</li>
-<li>Salida</li>
-<li>Etiquetas</li>
-</ul>
-</li>
-<li>Diferencias con versión anterior.</li>
-<li>Desarrollo dirigido por pruebas.</li>
-</ul><h2 id="Pruebas-unitarias"><a class="anchor hidden-xs" href="#Pruebas-unitarias" title="Pruebas-unitarias"><span class="octicon octicon-link"></span></a>Pruebas unitarias</h2><p>Las pruebas unitarias son comprobaciones de fragmentos de código claramente delimitados, lo que comúnmente asociamos con funciones o métodos. A pesar de esto, lo normal es que, para asegurarnos de tener un código de calidad, se hagan pruebas unitarias del programa completo. Cada una de estas pruebas consiste en asegurarnos de que un fragmento de código da el resultado que nosotros esperemos que dé. Además, también es normal realizar pruebas de excepciones que podrían saltar y otros comportamientos esperados que no tienen que estar relacionados estrictamente con el resultado.</p><p>Estas pruebas no intervienen en el código ni modifican su comportamiento. Sólo sirve como herramienta para que el desarrollador pueda hacer un código libre de errores con mayor facilidad. Sin embargo, las pruebas unitarias no comprueban la integración total del código, para lo que habría que realizar otro tipo de pruebas. Además, el desarrollador tiene que planear con cuidado las pruebas para manejar todos los posibles casos que podrían suceder en la ejecución de una función.</p><p>El correcto uso de las pruebas unitarias nos permitirá detectar errores a tiempo y localizarlo fácilmente, lo que permite un ahorro de tiempo y costos a largo plazo.</p><h2 id="¿Qué-es-JUnit"><a class="anchor hidden-xs" href="#¿Qué-es-JUnit" title="¿Qué-es-JUnit"><span class="octicon octicon-link"></span></a>¿Qué es JUnit?</h2><p>JUnit es uno de los frameworks más famosos para hacer tests unitarios de programas escritos en Java. Actualmente, los tests escritos con JUnit pueden ejecutarse de muchas formas:</p><ul>
+</span></p><h2 id="Pruebas-unitarias"><a class="anchor hidden-xs" href="#Pruebas-unitarias" title="Pruebas-unitarias"><span class="octicon octicon-link"></span></a>Pruebas unitarias</h2><p>Las pruebas unitarias son comprobaciones de fragmentos de código claramente delimitados, lo que comúnmente asociamos con funciones o métodos. A pesar de esto, lo normal es que, para asegurarnos de tener un código de calidad, se hagan pruebas unitarias del programa completo. Cada una de estas pruebas consiste en asegurarnos de que un fragmento de código da el resultado que nosotros esperemos que dé. Además, también es normal realizar pruebas de excepciones que podrían saltar y otros comportamientos esperados que no tienen que estar relacionados estrictamente con el resultado.</p><p>Estas pruebas no intervienen en el código ni modifican su comportamiento. Sólo sirve como herramienta para que el desarrollador pueda hacer un código libre de errores con mayor facilidad. Sin embargo, las pruebas unitarias no comprueban la integración total del código, para lo que habría que realizar otro tipo de pruebas. Además, el desarrollador tiene que planear con cuidado las pruebas para manejar todos los posibles casos que podrían suceder en la ejecución de una función.</p><p>El correcto uso de las pruebas unitarias nos permitirá detectar errores a tiempo y localizarlo fácilmente, lo que permite un ahorro de tiempo y costos a largo plazo.</p><h2 id="¿Qué-es-JUnit"><a class="anchor hidden-xs" href="#¿Qué-es-JUnit" title="¿Qué-es-JUnit"><span class="octicon octicon-link"></span></a>¿Qué es JUnit?</h2><p>JUnit es uno de los frameworks más famosos para hacer tests unitarios de programas escritos en Java. Actualmente, los tests escritos con JUnit pueden ejecutarse de muchas formas:</p><ul>
 <li>desde un IDE (IntelliJ, Eclipse, Netbeans, VS Code…),</li>
 <li>con un sistema de tareas (Gradle, Ant, Maven),</li>
 <li>o directamente desde la consola usando JUnit Platform.</li>
@@ -74,42 +61,459 @@
 <li><strong>JUnit Jupiter.</strong> API para escribir tests que además contiene un motor que los entiende.</li>
 <li><strong>JUnit Vintage.</strong> Igual que Jupiter pero para tests escritos con versiones anteriores de JUnit.</li>
 <li><strong>JUnit Platform.</strong> Es la base de JUnit. Presta soporte para la implementación de motores que ejecuten alguna clase de tests.</li>
-</ul><h2 id="Como-ejecutar-los-tests-desde-la-terminal-sin-ningún-IDE"><a class="anchor hidden-xs" href="#Como-ejecutar-los-tests-desde-la-terminal-sin-ningún-IDE" title="Como-ejecutar-los-tests-desde-la-terminal-sin-ningún-IDE"><span class="octicon octicon-link"></span></a>Como ejecutar los tests desde la terminal, sin ningún IDE</h2><p>El primer paso es <a href="https://repo1.maven.org/maven2/org/junit/platform/junit-platform-console-standalone/1.4.0/" target="_blank" rel="noopener">descargar JUnit Platform Console Launcher</a> desde el repositorio en Maven (seleccionar la versión <a href="https://repo1.maven.org/maven2/org/junit/platform/junit-platform-console-standalone/1.4.0/junit-platform-console-standalone-1.4.0.jar" target="_blank" rel="noopener">1.4.0</a>) y desde ahí, ejecutar el siguiente comando:</p><pre><code class="bash hljs">java -jar junit-platform-console-standalone-1.4.0.jar -cp &lt;bin&gt; --scan-classpath
-</code></pre><p>donde <code>&lt;bin&gt;</code> es el directorio que contiene las clases de los tests ya compiladas.</p><p><strong>Notas</strong></p><ul>
-<li>Tal y como se menciona, el comando necesita que los tests ya estén compilados. De modo que en ese directorio (o en algunos de sus subdirectorios, porque el comando funciona de manera recursiva) deben estar los ficheros <code>.class</code>.</li>
-<li>Es <strong>muy</strong> importante que la notación sea la adecuada: la clase debe empezar por <code>Test</code> o acabar por <code>Test</code>. Se puede configurar (con expresiones regulares) para que tenga en cuentra otro tipo de nomenclaturas, pero esas son las que vienen por defecto. Para más información consulte la ayuda del comando (<code>java -jar junit-platform-console-standalone-1.4.0.jar -h</code>).</li>
-</ul><p><img alt=":question:" class="emoji" src="https://cdnjs.cloudflare.com/ajax/libs/emojify.js/1.1.0/images/basic/question.png" title=":question:"> ¿Con el JUnit este no es necesario descargar Jupiter? <img alt=":question:" class="emoji" src="https://cdnjs.cloudflare.com/ajax/libs/emojify.js/1.1.0/images/basic/question.png" title=":question:"></p><h2 id="Cómo-se-escribe-un-test"><a class="anchor hidden-xs" href="#Cómo-se-escribe-un-test" title="Cómo-se-escribe-un-test"><span class="octicon octicon-link"></span></a>Cómo se escribe un test</h2><h3 id="Aserciones"><a class="anchor hidden-xs" href="#Aserciones" title="Aserciones"><span class="octicon octicon-link"></span></a>Aserciones</h3><p>Las aserciones son un conjunto de métodos que nos permiten hacer comprobaciones, para saber si nos da el resultado que nosotros esperamos.</p><p>En JUnit, generalmente, para cada aserción hay otras dos complementarias del mismo nombre. Una añade un <em><code>String</code></em> como último parámetro y otra un <em><code>Supplier&lt;String&gt;</code></em>. Ambas servirán como mensaje de error en caso de que falle la aserción. Además, como veremos, es muy común ver una aserción que significa la negación de otra.</p><h4 id="assertNull-assertNotNull"><a class="anchor hidden-xs" href="#assertNull-assertNotNull" title="assertNull-assertNotNull"><span class="octicon octicon-link"></span></a><code>assertNull</code>, <code>assertNotNull</code></h4><p>Comprueba si un objeto es nulo o no lo es.</p><h4 id="assertFalse-assertTrue"><a class="anchor hidden-xs" href="#assertFalse-assertTrue" title="assertFalse-assertTrue"><span class="octicon octicon-link"></span></a><code>assertFalse</code>, <code>assertTrue</code></h4><p>Comprueba si una expresión es falsa o verdadera. Es posible usarse con el tipo primitivo <em>boolean</em>, o bien con <em>BooleanSupplier</em>.</p><h4 id="assertEquals-assertNotEquals"><a class="anchor hidden-xs" href="#assertEquals-assertNotEquals" title="assertEquals-assertNotEquals"><span class="octicon octicon-link"></span></a><code>assertEquals</code>, <code>assertNotEquals</code></h4><p>Comprueba si dos variables tienen el mismo valor o no. En este caso hay una diferencia entre ambos casos. <code>assertEquals</code> funciona con todos los tipos primitivos y con cualquier objeto (por lo que es recomendable sobrecargar el método <code>equals()</code> para que asegurarnos de que la comparación es la correcta), mientras que <code>assertNotEquals</code> sólo funciona con la clase <em>Object</em>.</p><p>Sin embargo, desde la versión 1.5 de Java se hace el casteo automático de los tipos primitivos a sus respectivas clases. Por lo tanto, aparentemente funcionarán igual aunque internamente no hagan lo mismo.</p><h4 id="assertSame-assertNotSame"><a class="anchor hidden-xs" href="#assertSame-assertNotSame" title="assertSame-assertNotSame"><span class="octicon octicon-link"></span></a><code>assertSame</code>, <code>assertNotSame</code></h4><p>A diferencia de <code>assertEquals</code> ahora sólo funciona con <em>Object</em>, porque ahora no comprobamos el valor sino la identificación. En otras palabras, son dos referencias mismo objeto y por lo tanto ocupan el mismo espacio en memoria. En este caso también tenemos su versión negada.</p><h4 id="assertArrayEquals"><a class="anchor hidden-xs" href="#assertArrayEquals" title="assertArrayEquals"><span class="octicon octicon-link"></span></a><code>assertArrayEquals</code></h4><p>Su funcionamiento es muy similar a <em>assertEquals</em>, pero en vez de trabajar con un único valor trabajamos con un array de valores. Esos valores pueden ser de cualquier tipo primitivo o de la clase <em>Object</em>.</p><h4 id="fail"><a class="anchor hidden-xs" href="#fail" title="fail"><span class="octicon octicon-link"></span></a><code>fail</code></h4><p>Hay casos en los que quizás sea más fácil determinar las condiciones de un fallo por nosotros mismos o nos haga falta una opción más avanzada de la que ofrece JUnit. En estos casos podemos usar <code>fail</code>. Con este método directamente decimos que algo ha fallado sin atender a condiciones.</p><p>Con está opción podemos proporcionar un mensaje de error (con una <em>String</em> o un <em><code>Supplier&lt;String&gt;</code></em>) o la causa subyacente con un <em>Throwable</em>.</p><h4 id="Otras-aserciones"><a class="anchor hidden-xs" href="#Otras-aserciones" title="Otras-aserciones"><span class="octicon octicon-link"></span></a><code>Otras aserciones</code></h4><p>Además de las mencionadas en el documento hay otras aserciones (e incluso otras sobrecargas de estas aserciones) que recomendamos que vean<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>. Entre las aserciones que faltan se encontrarán con algunas para detectar las excepciones y otras para determinar el tiempo que se espera de la ejecución de un código.</p><p><img alt=":question:" class="emoji" src="https://cdnjs.cloudflare.com/ajax/libs/emojify.js/1.1.0/images/basic/question.png" title=":question:"> por que funciona assertNotEquals con primitivos</p><h3 id="Anotaciones"><a class="anchor hidden-xs" href="#Anotaciones" title="Anotaciones"><span class="octicon octicon-link"></span></a>Anotaciones</h3><p><img alt=":question:" class="emoji" src="https://cdnjs.cloudflare.com/ajax/libs/emojify.js/1.1.0/images/basic/question.png" title=":question:"> Qué es una anotación?</p><h4 id="Tests"><a class="anchor hidden-xs" href="#Tests" title="Tests"><span class="octicon octicon-link"></span></a>Tests</h4><p>Para ejecutar pruebas simples lo indicamos con la anotación <em>@Test</em>. Las denominamos simples ya que no es la única forma especificar que es una prueba.</p><pre><code class="java hljs"><span class="token annotation punctuation">@Test</span>
-<span class="token keyword">void</span> <span class="token function">testIguales</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token function">assertEquals</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</ul><div class="alert alert-info">
+<center> Eclipse viene con JUnit integrado </center>
+</div><h2 id="Como-ejecutar-los-tests-desde-la-terminal-sin-ningún-IDE"><a class="anchor hidden-xs" href="#Como-ejecutar-los-tests-desde-la-terminal-sin-ningún-IDE" title="Como-ejecutar-los-tests-desde-la-terminal-sin-ningún-IDE"><span class="octicon octicon-link"></span></a>Como ejecutar los tests desde la terminal, sin ningún IDE</h2><p>El primer paso es <a href="https://repo1.maven.org/maven2/org/junit/platform/junit-platform-console-standalone/1.4.0/" target="_blank" rel="noopener">descargar JUnit Platform Console Launcher</a> desde el repositorio en Maven (la versión más reciente es la <a href="https://repo1.maven.org/maven2/org/junit/platform/junit-platform-console-standalone/1.4.0/junit-platform-console-standalone-1.4.0.jar" target="_blank" rel="noopener">1.4.0</a>) y desde ahí, ejecutar el siguiente comando:</p><pre><code class="bash hljs">java -jar junit-platform-console-standalone-1.4.0.jar -cp &lt;bin&gt; --scan-classpath
+</code></pre><p>donde <code>&lt;bin&gt;</code> es el directorio que contiene las clases de los tests ya compiladas.</p><div class="alert alert-warning">
+<center><b>JUnit necesita que las pruebas estén compiladas</b></center> <br>
+<p>De modo que en <code>bin/</code> o en otro cualquier directorio (o en algunos de los subdirectorios del proyecto, porque el comando funciona de manera recursiva) deben estar los ficheros <code>.class</code> de las respectivas clases.</p>
+</div><p>Es muy importante que la notación sea la adecuada: por norma general es que la clase debe empezar por <code>Test</code> o acabar por <code>Test</code>. JUnit se puede configurar (con expresiones regulares) para que tenga en cuentra otro tipo de nomenclaturas, pero esas son las que vienen por defecto. Para más información consulte la ayuda del comando (<code>java -jar junit-platform-console-standalone-1.4.0.jar -h</code>).</p><h2 id="Cómo-se-escribe-un-test"><a class="anchor hidden-xs" href="#Cómo-se-escribe-un-test" title="Cómo-se-escribe-un-test"><span class="octicon octicon-link"></span></a>Cómo se escribe un test</h2><h3 id="Aserciones"><a class="anchor hidden-xs" href="#Aserciones" title="Aserciones"><span class="octicon octicon-link"></span></a>Aserciones</h3><p>Las aserciones son un conjunto de métodos que nos permiten hacer comprobaciones, para saber si nos da el resultado que nosotros esperamos. En el caso de no coincidir la función hace saltar la excepción <code>AssertionFailedError</code>.</p><p>En JUnit, generalmente, para cada aserción hay otras dos complementarias del mismo nombre. Una añade un <code>String</code> como último parámetro y otra un <code>Supplier&lt;String&gt;</code>. Ambas servirán como mensaje de error en caso de que falle la aserción. La diferencia entre ambas es que con <code>Supplier&lt;String&gt;</code> se hace una evaluación perezosa, es decir, se evalua cuando es necesario llamarla.</p><p>Además, como veremos, es muy común ver una aserción que significa la negación de otra.</p><pre><code class="java hljs"><span class="token annotation punctuation">@Test</span>
+<span class="token keyword">void</span> <span class="token function">comprobacionesConMensajesDeError</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">assertTrue</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">assertTrue</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">,</span><span class="token string">"Esto está mal"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">assertTrue</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token string">"Esto está mal, pero con supplier."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-</code></pre><div class="alert alert-info">
-<p>Hey</p>
-</div><h4 id="Tests-parametrizados-usando-ValueSource-"><a class="anchor hidden-xs" href="#Tests-parametrizados-usando-ValueSource-" title="Tests-parametrizados-usando-ValueSource-"><span class="octicon octicon-link"></span></a>Tests parametrizados (usando @ValueSource) <img alt=":question:" class="emoji" src="https://cdnjs.cloudflare.com/ajax/libs/emojify.js/1.1.0/images/basic/question.png" title=":question:"></h4><p>También específica que un método es una prueba. En este caso nos permite ejecutar dicha prueba más de una vez con el uso de parámetros distintos. Para proporcionar dichos valores usamos la etiqueta <em>@ValueSource</em>. Esta etiqueta solo admite determinados tipos, que deben escribirse de una manera determinada. Se listan a continuación:</p><pre><code class="java hljs"><span class="token keyword">short</span><span class="token punctuation">[</span><span class="token punctuation">]</span> shorts
-<span class="token keyword">byte</span><span class="token punctuation">[</span><span class="token punctuation">]</span> bytes
-<span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> ints
-<span class="token keyword">long</span><span class="token punctuation">[</span><span class="token punctuation">]</span> longs
-<span class="token keyword">float</span><span class="token punctuation">[</span><span class="token punctuation">]</span> floats
-<span class="token keyword">double</span><span class="token punctuation">[</span><span class="token punctuation">]</span> doubles
-<span class="token keyword">char</span><span class="token punctuation">[</span><span class="token punctuation">]</span> chars
-String<span class="token punctuation">[</span><span class="token punctuation">]</span> strings
-Class<span class="token punctuation">[</span><span class="token punctuation">]</span> classes
-</code></pre><p>Hay otras etiquetas que permiten añadir otro tipo de datos pero no es el objetivo de este documento.</p><pre><code class="java hljs"><span class="token annotation punctuation">@ParameterizedTest</span>
+</code></pre><h4 id="assertFalse-assertTrue"><a class="anchor hidden-xs" href="#assertFalse-assertTrue" title="assertFalse-assertTrue"><span class="octicon octicon-link"></span></a><code>assertFalse()</code>, <code>assertTrue()</code></h4><p>Comprueba si una expresión es falsa o verdadera. Es posible usarse con el tipo primitivo <code>boolean</code>, o bien con <code>BooleanSupplier</code>.</p><pre><code class="java hljs"><span class="token annotation punctuation">@Test</span>
+<span class="token keyword">void</span> <span class="token function">comprobacionesBooleanas</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> a <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>
+    <span class="token function">assertTrue</span><span class="token punctuation">(</span>a <span class="token operator">==</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">assertFalse</span><span class="token punctuation">(</span>a <span class="token operator">&lt;</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">assertFalse</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token punctuation">(</span>a <span class="token operator">&lt;</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><h4 id="assertNull-assertNotNull"><a class="anchor hidden-xs" href="#assertNull-assertNotNull" title="assertNull-assertNotNull"><span class="octicon octicon-link"></span></a><code>assertNull()</code>, <code>assertNotNull()</code></h4><p>Comprueba si un objeto es nulo o no lo es.</p><pre><code class="java hljs"><span class="token annotation punctuation">@Test</span>
+<span class="token keyword">void</span> <span class="token function">comprobacionesDeNulos</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    Integer a <span class="token operator">=</span> null<span class="token punctuation">;</span>
+    <span class="token function">assertNull</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    a <span class="token operator">=</span> <span class="token number">8</span><span class="token punctuation">;</span>
+    <span class="token function">assertNotNull</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><h4 id="assertEquals-assertNotEquals"><a class="anchor hidden-xs" href="#assertEquals-assertNotEquals" title="assertEquals-assertNotEquals"><span class="octicon octicon-link"></span></a><code>assertEquals()</code>, <code>assertNotEquals()</code></h4><p>Comprueba si dos variables tienen el mismo valor o no. En este caso hay una diferencia entre ambos casos. <code>assertEquals()</code> funciona con todos los tipos primitivos y con cualquier objeto (por lo que es recomendable sobrecargar el método <code>equals()</code> para que asegurarnos de que la comparación es la correcta), mientras que <code>assertNotEquals()</code> sólo funciona con la clase <code>Object</code>.</p><p>Sin embargo, desde la versión 1.5 de Java se hace el casteo automático de los tipos primitivos a sus respectivas clases. Por lo tanto, aparentemente funcionarán igual aunque internamente no hagan lo mismo.</p><pre><code class="java hljs"><span class="token annotation punctuation">@Test</span>
+<span class="token keyword">void</span> <span class="token function">comprobacionesDeIgualdades</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">assertEquals</span><span class="token punctuation">(</span><span class="token string">"prueba"</span><span class="token punctuation">,</span> <span class="token string">"prueba"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">assertEquals</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">assertNotEquals</span><span class="token punctuation">(</span><span class="token string">"prueba"</span><span class="token punctuation">,</span> <span class="token string">"prueba diferente"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">assertNotEquals</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// más código</span>
+<span class="token punctuation">}</span>
+</code></pre><h4 id="assertSame-assertNotSame"><a class="anchor hidden-xs" href="#assertSame-assertNotSame" title="assertSame-assertNotSame"><span class="octicon octicon-link"></span></a><code>assertSame()</code>, <code>assertNotSame()</code></h4><p>A diferencia de <code>assertEquals()</code> ahora sólo funciona con <code>Object</code>, porque ahora no comprobamos el valor sino la identificación. En otras palabras, son dos referencias al mismo objeto y por lo tanto ocupan el mismo espacio en memoria. En este caso también tenemos su versión negada.</p><pre><code class="java hljs"><span class="token annotation punctuation">@Test</span>
+<span class="token keyword">void</span> <span class="token function">comprobacionesDeIgualdades</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// código por aquí...</span>
+    String a <span class="token operator">=</span> <span class="token string">"prueba"</span><span class="token punctuation">;</span>
+    <span class="token function">assertSame</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">assertNotSame</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span><span class="token string">"prueba"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// código por allá...</span>
+<span class="token punctuation">}</span>
+</code></pre><h4 id="assertArrayEquals-assertIterableEquals"><a class="anchor hidden-xs" href="#assertArrayEquals-assertIterableEquals" title="assertArrayEquals-assertIterableEquals"><span class="octicon octicon-link"></span></a><code>assertArrayEquals()</code>, <code>assertIterableEquals()</code></h4><p>El funcionamiento de <code>assertArrayEquals()</code> es muy similar a <code>assertEquals</code>, pero en vez de trabajar con un único valor trabajamos con un array de valores. Es decir, los arrays tienen que contener los mismos elementos en las mismas posiciones. Esos valores pueden ser de cualquier tipo primitivo o de la clase <code>Object</code>.</p><p>Por otro lado, <code>assertIterableEquals()</code> hace lo mismo pero funciona con <code>Iterable&lt;&gt;</code>. Esto cuenta con la ventaja de que los dos objetos no tienen que ser necesariamente iguales, pueden ser dos clases diferentes derivadas de <code>Iterable&lt;&gt;</code>.</p><pre><code class="java hljs"><span class="token annotation punctuation">@Test</span>
+<span class="token keyword">void</span> <span class="token function">comprobacionesDeIgualdades</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// código por aquí...</span>
+    <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> b <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> c <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token function">assertArrayEquals</span><span class="token punctuation">(</span>b<span class="token punctuation">,</span>c<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    List<span class="token generics function"><span class="token punctuation">&lt;</span>String<span class="token punctuation">&gt;</span></span> primerIterable <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token operator">&lt;</span><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    primerIterable<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"abc"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    primerIterable<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"segundaPalabra"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    primerIterable<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"última comprobación"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    Vector<span class="token generics function"><span class="token punctuation">&lt;</span>String<span class="token punctuation">&gt;</span></span> segundoIterable <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vector</span><span class="token operator">&lt;</span><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    segundoIterable<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"abc"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    segundoIterable<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"segundaPalabra"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    segundoIterable<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"última comprobación"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">assertIterableEquals</span><span class="token punctuation">(</span>primerIterable<span class="token punctuation">,</span> segundoIterable<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// código por allá...</span>
+<span class="token punctuation">}</span>
+</code></pre><h4 id="assertThrows-assertAll"><a class="anchor hidden-xs" href="#assertThrows-assertAll" title="assertThrows-assertAll"><span class="octicon octicon-link"></span></a><code>assertThrows()</code>, <code>assertAll()</code></h4><p>En ocasiones es interesante comprobar si un fragmento de código lanza una determinada excepción. Para ello tenemos <code>assertThrows()</code>, que recibe la clase de la excepción que creemos que debería saltar y un <code>Executable</code> con el código a comprobar.</p><p>También podemos usar <code>assertAll()</code> para detectar las excepciones de varios ejecutables. En este caso no concretaremos la excepción, sino que se considerará una prueba satisfactoria si ningún ejecutable lanza excepciones.</p><pre><code class="java hljs"><span class="token annotation punctuation">@Test</span>
+<span class="token keyword">void</span> <span class="token function">comprobacionesDeExcepciones</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">assertThrows</span><span class="token punctuation">(</span>ArrayIndexOutOfBoundsException<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> a <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>a<span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token function">assertAll</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> a <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>a<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"No se me ocurre de que hacer las pruebas"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><h4 id="assertTimeout-assertTimeoutPreemptively"><a class="anchor hidden-xs" href="#assertTimeout-assertTimeoutPreemptively" title="assertTimeout-assertTimeoutPreemptively"><span class="octicon octicon-link"></span></a><code>assertTimeout()</code>, <code>assertTimeoutPreemptively()</code></h4><p>Ambas opciones permiten comprobar el tiempo que tarda en ejecutarse un fragmento de código en milisegundo. Para ello requiere que le pasemos el tiempo máximo que estimamos que debería tardar. La diferencia es que <code>assertTimeout</code> se ejecutará en el mismo hilo en el que fue llamado, por lo que si sobrapasa el tiempo estimado tendremos que esperar a que termine igualmente. Con <code>assertTimeoutPreemptively</code>, al ejecutarse en otro hilo, se aborta su ejecución si sobrepasa dicho tiempo.</p><pre><code class="java hljs"><span class="token annotation punctuation">@Test</span>
+<span class="token keyword">void</span> <span class="token function">comprobacionesDeTiempoDeEjecucion</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">assertTimeout</span><span class="token punctuation">(</span>Duration<span class="token punctuation">.</span><span class="token function">ofMillis</span><span class="token punctuation">(</span><span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> total <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">10000</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            total <span class="token operator">+=</span> i<span class="token punctuation">;</span>
+            <span class="token comment">//System.out.println(i);</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">assertTimeoutPreemptively</span><span class="token punctuation">(</span>Duration<span class="token punctuation">.</span><span class="token function">ofMillis</span><span class="token punctuation">(</span><span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> total <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">2147483647</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            total <span class="token operator">+=</span> i<span class="token punctuation">;</span>
+            <span class="token comment">//System.out.println(i);</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><h4 id="fail"><a class="anchor hidden-xs" href="#fail" title="fail"><span class="octicon octicon-link"></span></a><code>fail()</code></h4><p>Hay casos en los que quizás sea más fácil determinar las condiciones de un fallo por nosotros mismos o nos haga falta una opción más avanzada de la que ofrece JUnit. En estos casos podemos usar <code>fail()</code>. Con este método directamente decimos que algo ha fallado sin atender a condiciones.</p><p>Con está opción podemos proporcionar un mensaje de error (con una <code>String</code> o un <code>Supplier&lt;String&gt;</code>) o la causa subyacente con un <code>Throwable</code>.</p><pre><code class="java hljs"><span class="token annotation punctuation">@Test</span>
+<span class="token keyword">void</span> <span class="token function">fallosIncondicionales</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">fail</span><span class="token punctuation">(</span><span class="token string">"Falla porque lo digo yo."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token annotation punctuation">@Test</span>
+<span class="token keyword">void</span> <span class="token function">fallosIncondicionalesConThrowable</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> a <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>a <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">fail</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">IllegalArgumentException</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><h4 id="Otras-aserciones"><a class="anchor hidden-xs" href="#Otras-aserciones" title="Otras-aserciones"><span class="octicon octicon-link"></span></a>Otras aserciones</h4><p>Además de las mencionadas en el documento hay otras aserciones (e incluso otras sobrecargas de estas aserciones) que recomendamos que vean<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>. Entre las aserciones que faltan se encontrarán con <code>assertLinesMatch()</code>, pero realmente no es muy utilizada.</p><h3 id="Asunciones"><a class="anchor hidden-xs" href="#Asunciones" title="Asunciones"><span class="octicon octicon-link"></span></a>Asunciones</h3><p>Son un conjunto de métodos que permiten abortar tests si no se cumple una condición que se tenía asumido que pasaría. Se creó pensando en aquellos casos en los que las pruebas no tuvieran sentido para un determinado supuesto.</p><h4 id="assumeTrue-assumeFalse"><a class="anchor hidden-xs" href="#assumeTrue-assumeFalse" title="assumeTrue-assumeFalse"><span class="octicon octicon-link"></span></a><code>assumeTrue()</code>, <code>assumeFalse()</code></h4><p>Comprueba que una expresión booleana es verdadera o falsa, de lo contrario lanzará la excepción <code>TestAbortedException</code>, evitando que se ejecuten el resto de instrucciones del test. También es posible pasarle como parámetro un <code>String</code> o <code>Supplier&lt;String&gt;</code> como mensaje de la excepción. Además, también permite usar <code>BooleanSupplier</code> en vez de un valor <code>boolean</code>.</p><pre><code class="java hljs"><span class="token annotation punctuation">@Test</span> 
+<span class="token keyword">void</span> <span class="token function">asuncionesBooleanas</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">assumeTrue</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">assumeFalse</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token function">assertNull</span><span class="token punctuation">(</span>null<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><h4 id="assumingThat"><a class="anchor hidden-xs" href="#assumingThat" title="assumingThat"><span class="octicon octicon-link"></span></a><code>assumingThat()</code></h4><p>Hay casos en los que no queremos que deje de ejecutar el resto del test, sino que deje de ejecutar una parte concreta. Para eso usamos <code>assumingThat()</code>, que comprueba una condición booleana y ejecuta un <code>Executable</code> en el caso de que dicha condición se valide. Si no se valida continuará con el resto de instrucciones directamente.</p><pre><code class="java hljs"><span class="token annotation punctuation">@Test</span> 
+<span class="token keyword">void</span> <span class="token function">asuncionesConEjecuciones</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">final</span> <span class="token keyword">int</span> a <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>
+    <span class="token function">assumingThat</span><span class="token punctuation">(</span>a <span class="token operator">&lt;</span> <span class="token number">0</span> <span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+        <span class="token function">assertEquals</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">assumingThat</span><span class="token punctuation">(</span>a <span class="token operator">&gt;</span> <span class="token number">0</span> <span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+        <span class="token function">assertEquals</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><h3 id="Anotaciones"><a class="anchor hidden-xs" href="#Anotaciones" title="Anotaciones"><span class="octicon octicon-link"></span></a>Anotaciones</h3><p>Las anotaciones en Java son metadatos que proporcionan información al compilador sobre el programa, aunque no tengan efecto directo sobre él. Pueden ser utilizadas con clases, métodos, metadatos, campos, parámetros, variables locales, y paquetes.</p><p>Las capacidades de las anotaciones no están claramente delimitadas. Algunas permiten decir al compilador que no te muestre unos determinados warnings (<code>@SuppressWarnings</code>), otros te permiten informar opcionalmente de que un método es una sobrecarga de otro (<code>@Override</code>) o algunas puede indicar a herramientas externas como tienen que actuar respecto a ese código (<code>@Test</code>).</p><p>Lo que si sabemos es como nombrarlas. Simplemente se colocará un @ antes.</p><p>En el caso de JUnit se utilizan las etiquetas para configurar los tests. Ahora veremos el funcionamiento de las más importantes.</p><div class="alert alert-info">
+<center><b>Anotaciones experimentales</b></center> <br>
+Hay muchas etiquetas de JUnit que se encuentran en estado experimental, y son las que faltan mayormente en este informe. Para buscarlas recomendamos identificar las anotaciones en la documentación de JUnit y luego buscar la información en la api, ya que en la api se encuentran separadas de las estables. Además, la api mostrará información adicional sobre como deben ser declarados los métodos para cada etiqueta.
+</div><h4 id="Tests"><a class="anchor hidden-xs" href="#Tests" title="Tests"><span class="octicon octicon-link"></span></a>Tests</h4><p>Para ejecutar pruebas simples lo indicamos con la anotación <code>@Test</code>. Las denominamos simples ya que no es la única forma especificar que es una prueba.</p><pre><code class="java hljs"> <span class="token annotation punctuation">@Test</span>
+<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">testDeEjemplo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">assertTrue</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><h4 id="Tests-parametrizados"><a class="anchor hidden-xs" href="#Tests-parametrizados" title="Tests-parametrizados"><span class="octicon octicon-link"></span></a>Tests parametrizados</h4><p>También específica que un método es una prueba. En este caso nos permite ejecutar dicha prueba más de una vez con el uso de parámetros distintos.</p><p>Para proporcionar dichos podemos usar varias etiquetas. La primera de ellas es <code>@ValueSource</code>. Esta etiqueta solo admite determinados tipos, que deben escribirse de una manera determinada. Se listan a continuación:</p><table>
+<thead>
+<tr>
+<th>Tipo de valores</th>
+<th>Nomenclatura</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>short[]</code></td>
+<td><code>shorts</code></td>
+</tr>
+<tr>
+<td><code>byte[]</code></td>
+<td><code>bytes</code></td>
+</tr>
+<tr>
+<td><code>int[]</code></td>
+<td><code>ints</code></td>
+</tr>
+<tr>
+<td><code>long[]</code></td>
+<td><code>longs</code></td>
+</tr>
+<tr>
+<td><code>float[]</code></td>
+<td><code>floats</code></td>
+</tr>
+<tr>
+<td><code>double[]</code></td>
+<td><code>doubles</code></td>
+</tr>
+<tr>
+<td><code>char[]</code></td>
+<td><code>chars</code></td>
+</tr>
+<tr>
+<td><code>String[]</code></td>
+<td><code>strings</code></td>
+</tr>
+<tr>
+<td><code>Class[]</code></td>
+<td><code>classes</code></td>
+</tr>
+</tbody>
+</table><div class="alert alert-info">
+<p>Consulta la API de JUnit en el apartado <a href="https://junit.org/junit5/docs/current/user-guide/#writing-tests-parameterized-tests-sources" target="_blank" rel="noopener"><em>Source of Arguments</em></a> para ver otras maneras de dar valores a los parámetros de los tests.</p>
+</div><p>Un par de ejemplos simples:</p><pre><code class="java hljs"><span class="token comment">// Este ejemplo ejecuta el tests tres veces: </span>
+<span class="token comment">// primero con a = 1, luego con a = 2 y finalmente con a = 3.</span>
+
+<span class="token annotation punctuation">@ParameterizedTest</span>
 <span class="token annotation punctuation">@ValueSource</span><span class="token punctuation">(</span>ints <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
-<span class="token keyword">void</span> <span class="token function">testParametrizado</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token function">assertEquals</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">testParametrizado</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">assertEquals</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>             <span class="token comment">// solo acertará una vez</span>
 <span class="token punctuation">}</span>
-</code></pre><h4 id="Fábrica-de-pruebas"><a class="anchor hidden-xs" href="#Fábrica-de-pruebas" title="Fábrica-de-pruebas"><span class="octicon octicon-link"></span></a>Fábrica de pruebas<img alt=":question:" class="emoji" src="https://cdnjs.cloudflare.com/ajax/libs/emojify.js/1.1.0/images/basic/question.png" title=":question:"></h4><h4 id="Ejecución-de-métodos-antes-y-después-de-otros-tests"><a class="anchor hidden-xs" href="#Ejecución-de-métodos-antes-y-después-de-otros-tests" title="Ejecución-de-métodos-antes-y-después-de-otros-tests"><span class="octicon octicon-link"></span></a>Ejecución de métodos antes y después de otros tests</h4><p>JUnit nos proporciona algunas anotaciones para ejecutar instrucciones antes y después de las pruebas. Además, también nos permite decidir si ejecutarlas una vez antes de cada una de las pruebas o una única vez.</p><h3 id="Asunciones"><a class="anchor hidden-xs" href="#Asunciones" title="Asunciones"><span class="octicon octicon-link"></span></a>Asunciones</h3><h3 id="Salida"><a class="anchor hidden-xs" href="#Salida" title="Salida"><span class="octicon octicon-link"></span></a>Salida</h3><h2 id="Referencias"><a class="anchor hidden-xs" href="#Referencias" title="Referencias"><span class="octicon octicon-link"></span></a>Referencias</h2><ul>
+</code></pre><h4 id="Fábrica-de-pruebas"><a class="anchor hidden-xs" href="#Fábrica-de-pruebas" title="Fábrica-de-pruebas"><span class="octicon octicon-link"></span></a>Fábrica de pruebas</h4><p>Hasta ahora hemos visto como escribir tests estáticos. Estos tests están definidos a la hora de compilarlos, y no pueden ser cambiados en tiempo de ejecución.</p><p>Sin embargo, podría interesarnos crear un set de tests durante la ejecución de las pruebas. Esto lo hacemos con la anotación <code>@TestFactory</code>.</p><pre><code class="java hljs"><span class="token annotation punctuation">@TestFactory</span>
+<span class="token keyword">public</span> Stream<span class="token generics function"><span class="token punctuation">&lt;</span>DynamicTest<span class="token punctuation">&gt;</span></span> <span class="token function">testsDinamicos</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+    <span class="token comment">/*
+     * Estas dos listas representan los parametros de entrada 
+     * (lo que enviamos al test) y los parametros de salida 
+     * (los parametros que esperamos que devuelva la función 
+     * que estamos testeando).
+     */</span>
+    List<span class="token generics function"><span class="token punctuation">&lt;</span>String<span class="token punctuation">&gt;</span></span> ejemploEntrada 
+        <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token operator">&lt;</span><span class="token operator">&gt;</span><span class="token punctuation">(</span>Arrays<span class="token punctuation">.</span><span class="token function">asList</span><span class="token punctuation">(</span><span class="token string">"Hola"</span><span class="token punctuation">,</span> <span class="token string">"que"</span><span class="token punctuation">,</span> <span class="token string">"tal"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    List<span class="token generics function"><span class="token punctuation">&lt;</span>String<span class="token punctuation">&gt;</span></span> ejemploSalida  
+        <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token operator">&lt;</span><span class="token operator">&gt;</span><span class="token punctuation">(</span>Arrays<span class="token punctuation">.</span><span class="token function">asList</span><span class="token punctuation">(</span><span class="token string">"Hola1"</span><span class="token punctuation">,</span> <span class="token string">"que1"</span><span class="token punctuation">,</span> <span class="token string">"tal1"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    
+    <span class="token comment">/*
+     * Las fábricas de tests deben devolver un stream de tests.
+     * En esta lista es donde meteremos todos los tests que 
+     * crearemos dinámicamente.
+     */</span>  
+    Collection<span class="token generics function"><span class="token punctuation">&lt;</span>DynamicTest<span class="token punctuation">&gt;</span></span> setDeTests <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token operator">&lt;</span><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> ejemploEntrada<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        String      entrada    <span class="token operator">=</span> ejemploEntrada<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        String      salida     <span class="token operator">=</span> ejemploSalida<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Executable  aserto     <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token function">assertEquals</span><span class="token punctuation">(</span>salida<span class="token punctuation">,</span> <span class="token function">modifica</span><span class="token punctuation">(</span>entrada<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        String      nombreTest <span class="token operator">=</span> <span class="token string">"Añade 1 al final de la palabra '"</span> <span class="token operator">+</span> entrada <span class="token operator">+</span> <span class="token string">"'"</span><span class="token punctuation">;</span>
+        
+        <span class="token comment">/*
+         * Un test dinámico se crea a partir de dos parámetros:
+         * &gt; un Executable (un objeto que JUnit emplea para
+         *   almacenar funciones anónimas que contiene el aserto
+         *   en cuestión), y 
+         * &gt; una string que represente el nombre del test.
+         */</span> 
+        DynamicTest testDinamico <span class="token operator">=</span> DynamicTest<span class="token punctuation">.</span><span class="token function">dynamicTest</span><span class="token punctuation">(</span>nombreTest<span class="token punctuation">,</span> aserto<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        
+        setDeTests<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>testDinamico<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">return</span> setDeTests<span class="token punctuation">.</span><span class="token function">stream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><h4 id="Ejecución-de-métodos-antes-y-después-de-otros-tests"><a class="anchor hidden-xs" href="#Ejecución-de-métodos-antes-y-después-de-otros-tests" title="Ejecución-de-métodos-antes-y-después-de-otros-tests"><span class="octicon octicon-link"></span></a>Ejecución de métodos antes y después de otros tests</h4><p>JUnit nos proporciona algunas anotaciones para ejecutar instrucciones antes y después de las pruebas. Además, también nos permite decidir si ejecutarlas una vez antes de cada una de las pruebas o una única vez. Son las siguientes:</p><table>
+<thead>
+<tr>
+<th>Anotación</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>@BeforeAll</code></td>
+<td>Ejecuta el método una única vez antes de los tests.</td>
+</tr>
+<tr>
+<td><code>@BeforeEach</code></td>
+<td>Ejecuta el método antes de ejecutar cada uno de los tests.</td>
+</tr>
+<tr>
+<td><code>@AfterAll</code></td>
+<td>Ejecuta el método una única vez después de ejecutar todos los tests.</td>
+</tr>
+<tr>
+<td><code>@AfterEach</code></td>
+<td>Ejecuta el método después de ejecutar cada uno de los tests.</td>
+</tr>
+</tbody>
+</table><pre><code class="java hljs"><span class="token comment">// Este método se ejecutará para todos los métodos marcados como</span>
+<span class="token comment">// tests, incluidos los de clases anidadas.</span>
+
+<span class="token annotation punctuation">@BeforeEach</span>
+<span class="token keyword">void</span> <span class="token function">antesDeCadaUno</span><span class="token punctuation">(</span>TestInfo info<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Ejecutando "</span> <span class="token operator">+</span> info<span class="token punctuation">.</span><span class="token function">getDisplayName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><div class="alert alert-warning">
+<p>Los métodos que lleven la anotación <code>@BeforeAll</code> o <code>@AfterAll</code> deben ser declarados estáticos.</p>
+</div><pre><code class="java hljs"><span class="token annotation punctuation">@AfterAll</span>
+<span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">alFinalDeTodos</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Esto se va a"</span> <span class="token operator">+</span> 
+        <span class="token string">"imprimir cuando todos los tests se hayan ejecutado"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><h4 id="Desactivar-pruebas"><a class="anchor hidden-xs" href="#Desactivar-pruebas" title="Desactivar-pruebas"><span class="octicon octicon-link"></span></a>Desactivar pruebas</h4><p>En JUnit es posible escribir pruebas pero evitar que sean ejecutadas. Resulta más cómodo que comentarlo o quitar su correspondiente anotación, ya que se podría confundir con otros métodos que nunca han sido tests. De está forma podemos bloquear temporalmente su ejecución de forma más limpia. En el caso de usarlo con clases se desactivan todas las pruebas incluidas en ellas. Lo único que hay que hacer es poner la anotación <code>@Disabled</code>. Además, podemos indicar con una cadena de texto el motivo por el que está desactivado.</p><pre><code class="java hljs"><span class="token annotation punctuation">@Disabled</span>
+<span class="token annotation punctuation">@Test</span>
+<span class="token keyword">void</span> <span class="token function">testDesactivado</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">assertEquals</span><span class="token punctuation">(</span><span class="token number">2</span> <span class="token operator">+</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><h4 id="Customizar-los-nombres-de-las-pruebas"><a class="anchor hidden-xs" href="#Customizar-los-nombres-de-las-pruebas" title="Customizar-los-nombres-de-las-pruebas"><span class="octicon octicon-link"></span></a>Customizar los nombres de las pruebas</h4><p>Por defecto, las pruebas se identifican en la salida por el nombre del método, pero quizás sería más claro si se redactará con espacios u otros símbolos que un método no te permite usar. Para ello podemos utilizar <code>@DisplayName</code> tanto para métodos como para clases.</p><pre><code class="java hljs"><span class="token annotation punctuation">@DisplayName</span><span class="token punctuation">(</span><span class="token string">"Hola. Soy un test de ejemplo"</span><span class="token punctuation">)</span>
+<span class="token annotation punctuation">@Test</span>
+<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">testDeEjemplo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">assertTrue</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><h4 id="Pruebas-encadenadas"><a class="anchor hidden-xs" href="#Pruebas-encadenadas" title="Pruebas-encadenadas"><span class="octicon octicon-link"></span></a>Pruebas encadenadas</h4><p>Hasta ahora todas las pruebas estaban al mismo nivel, no podiamos establecer una jerarquía. Realmente si es posible. Dentro de la clase principal podemos crear otra con la anotación <code>@Nested</code> para especificar que esa clase también contiene pruebas. Si no lo especificaramos simplemente se ignoraría.</p><p>Una práctica muy común es utilizar este encadenamiento para formar frases en relación con el nombre sus métodos y con el nombre de la clase superior. De esta forma se puede leer de forma fluida que es lo que representa cada prueba.</p><p>Sin embargo, no es una regla fija y puede usarse de la forma que se vea conveniente. En el fondo es una forma de agrupar pruebas de forma que se aprecie visualmente en la salida.</p><pre><code class="java hljs"><span class="token annotation punctuation">@Nested</span>
+<span class="token keyword">class</span> <span class="token class-name">otroTipoDeTests</span> <span class="token punctuation">{</span>
+    <span class="token annotation punctuation">@Test</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">testA</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// código...</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><h4 id="Etiquetas"><a class="anchor hidden-xs" href="#Etiquetas" title="Etiquetas"><span class="octicon octicon-link"></span></a>Etiquetas</h4><p>Tanto las clases como los métodos de prueba pueden etiquetarse con la anotación <code>@Tag</code>. Dicha anotación nos permite decidir qué conjunto de tests queremos ejecutar, por ejemplo. Desde Eclipse estas etiquetas pueden definirse en el apartado de configuración de JUnit, en <code>Run &gt; Coverage Configurations</code>. Una vez allí seleccionamos/creamos la configuración para ejecutar JUnit y añadimos las etiquetas en donde pone <em>Include and exclude tags</em>.</p><p>En general, y de manera simplificada, una etiqueta:</p><ul>
+<li>
+<p>no puede estar vacía o en blanco,</p>
+</li>
+<li>
+<p>no debe tener espacios,</p>
+</li>
+<li>
+<p>no debe tener caracteres de control ISO,</p>
+</li>
+<li>
+<p>no debe tener ninguno de los siguientes caracteres reservados:</p>
+<table>
+<thead>
+<tr>
+<th>Símbolo</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>,</code></td>
+<td>coma</td>
+</tr>
+<tr>
+<td><code>(</code></td>
+<td>paréntesis izquierdo</td>
+</tr>
+<tr>
+<td><code>)</code></td>
+<td>paréntesis derecho</td>
+</tr>
+<tr>
+<td><code>&amp;</code></td>
+<td>ampersand</td>
+</tr>
+<tr>
+<td><code>|</code></td>
+<td>barra vertical</td>
+</tr>
+<tr>
+<td><code>!</code></td>
+<td>signo de exclamación</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul><p>El motivo por el que estos caracteres están reservados es porque sirven de operadores lógicos para decidir que tests queremos ejecutar.</p><p>Este es un ejemplo que hemos extraído y traducido de la API:</p><table>
+<thead>
+<tr>
+<th>Expresión</th>
+<th>Tests seleccionados</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>producto</code></td>
+<td>todos los test que tengan la etiqueta <code>producto</code></td>
+</tr>
+<tr>
+<td><code>catalogo | enviar</code></td>
+<td>todo los test marcados con <code>catalogo</code> <strong>o</strong> <code>enviar</code></td>
+</tr>
+<tr>
+<td><code>catalogo &amp; enviar</code></td>
+<td>todo los test marcados con <code>catalogo</code> <strong>y</strong> <code>enviar</code></td>
+</tr>
+<tr>
+<td><code>producto &amp; !puerta-a-puerta</code></td>
+<td>todos los test marcados con <code>producto</code> pero no <code>puerta-a-puerta</code></td>
+</tr>
+<tr>
+<td><code>(pequeño | rápido) &amp; (producto | enviar)</code></td>
+<td>todos los tests marcados con <code>pequeño</code> o <code>rápido</code> que además estén marcados con <code>producto</code> o <code>enviar</code>.</td>
+</tr>
+</tbody>
+</table><pre><code class="java hljs"><span class="token annotation punctuation">@DisplayName</span><span class="token punctuation">(</span><span class="token string">"comprueba algo"</span><span class="token punctuation">)</span>
+<span class="token annotation punctuation">@Test</span>
+<span class="token annotation punctuation">@Tag</span><span class="token punctuation">(</span><span class="token string">"A"</span><span class="token punctuation">)</span>
+<span class="token annotation punctuation">@Tag</span><span class="token punctuation">(</span><span class="token string">"B"</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">otroTestMas</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">assertTrue</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token annotation punctuation">@DisplayName</span><span class="token punctuation">(</span><span class="token string">"comprueba otra cosa"</span><span class="token punctuation">)</span>
+<span class="token annotation punctuation">@Test</span>
+<span class="token annotation punctuation">@Tag</span><span class="token punctuation">(</span><span class="token string">"A"</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">otroTestMas1</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">assertTrue</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token annotation punctuation">@DisplayName</span><span class="token punctuation">(</span><span class="token string">"comprueba más cosas todavía"</span><span class="token punctuation">)</span>
+<span class="token annotation punctuation">@Test</span>
+<span class="token annotation punctuation">@Tag</span><span class="token punctuation">(</span><span class="token string">"B"</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">otroTestMas2</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">assertTrue</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><h3 id="Salida"><a class="anchor hidden-xs" href="#Salida" title="Salida"><span class="octicon octicon-link"></span></a>Salida</h3><h4 id="Eclipse"><a class="anchor hidden-xs" href="#Eclipse" title="Eclipse"><span class="octicon octicon-link"></span></a>Eclipse</h4><p>Eclipse tiene un panel izquierdo en el que se muestran los tests descubiertos junto con el resultado de su ejecución. En este caso los principales son:</p><table>
+<thead>
+<tr>
+<th>Símbología / Color</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Gris</td>
+<td>Test desactivado (cuenta como <em>skipped)</em></td>
+</tr>
+<tr>
+<td>Papel con símbolo de abortado gris</td>
+<td>Asunción fallida (cuenta como <em>skipped)</em></td>
+</tr>
+<tr>
+<td>Verde</td>
+<td>Test correcto</td>
+</tr>
+<tr>
+<td>Amarillo con cruz azul</td>
+<td>Test fallido</td>
+</tr>
+<tr>
+<td>Rojo</td>
+<td>Test no compilado correctamente</td>
+</tr>
+<tr>
+<td>Hoja de papel</td>
+<td>Representa una agrupación de tests, ya sea porque son tests parametrizados o porque están dentro de una clase anidada. La cruz que aparecerá depende de si todos los tests se ejecutaron correctamente (verde) o si hubo fallos (azul)</td>
+</tr>
+</tbody>
+</table><div class="alert alert-warning">
+<center> Los íconos dependen del tema empleado </center>
+</div><p>En algunas ocasiones Eclipse puede mostrar unas líneas amarillas, especialmente en condicionales, con el mensaje “3 of 4 branches missed”, por ejemplo. Significa que no se han probado todos los valores de los booleanos en cuestión:</p><pre><code class="java hljs"><span class="token keyword">if</span> <span class="token punctuation">(</span>a <span class="token operator">&amp;&amp;</span> b<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// código</span>
+<span class="token punctuation">}</span>
+</code></pre><p>En el snippet de código anterior, para que todas las ramas se ejecutasen el código tendría que comprobar los valores de <code>a</code> y <code>b</code> cuando:</p><ul>
+<li>ambas son falsas (1 rama),</li>
+<li>alguna de ellas es falsa y la otra verdadera (2 ramas),</li>
+<li>ambas son verdaderas (1 rama).</li>
+</ul><p>Por debajo de ese panel se muestra la traza de errores que se han producido durante la ejecución de los tests: ya sea porque los tests han fallado (es decir, porque no se ha recibido el resultado esperado), o porque se ha producido un error de compilación (es decir, que los tests están mal escritos).</p><p><img src="https://i.imgur.com/634ToO7.png" alt="" width="325"> <img src="https://i.imgur.com/bGHNABx.png" alt="" width="325"></p><h4 id="Terminal"><a class="anchor hidden-xs" href="#Terminal" title="Terminal"><span class="octicon octicon-link"></span></a>Terminal</h4><p>La salida por terminal se parece bastante también a la que JUnit muestra. En general, al ejecutar la plataforma, esta buscará los tests que estén disponibles y compilados en determinada carpeta (en el árbol se puede identificar incluso si los tests están escritos para Jupiter o si por el contrario están escritos en versiones anteriores de JUnit y deben ejecutarse con Vintage).</p><p>También son detectadas las clases principales y las anidadas, que muestra como contenedores al igual que los módulos antes descritos (en azul claro en este caso). Los tests que han fallado se muestran en rojo, los desactivados en violeta, los que no han cumplido alguna asunción se muestran en amarillo y los que se han ejecutado correctamente se muestran en azul (con el <code>[OK]</code> verde al lado).</p><center> <img src="https://i.imgur.com/qmNUDks.png"> </center><center> Panel principal que enseña las pruebas descubiertas </center><br><center> <img src="https://i.imgur.com/YtY2unk.png"> </center><center> Traza de errores detallada que enseña por qué los tests fallaron </center><br><center> <img src="https://i.imgur.com/wCRAXip.png"> </center><center> Resumen final de la ejecución de los tests </center><br><p>Sobre el resumen final de ejecución:</p><ul>
+<li>Los <em>containers</em> son los módulos donde están almacenados los tests (ya sea por formar parte de Jupiter o Vintage, o por estar dentro de una clase).</li>
+<li>Sobre los tests:
+<ul>
+<li><em>found:</em> todos los tests descubiertos (incluidos los desactivados).</li>
+<li><em>skipped:</em> tests desactivados. Aquí no cuenta las asunciones fallidas como Eclipse.</li>
+<li><em>started:</em> tests que se ejecutaron.</li>
+<li><em>aborted:</em> tests que no cumplieron alguna asunción de los tests ejecutados.</li>
+<li><em>successful:</em> tests que pasaron correctamente.</li>
+<li><em>failed:</em> tests que fallaron.</li>
+</ul>
+</li>
+</ul><div class="alert alert-info">
+<p>Consulte la <a href="#Como-ejecutar-los-tests-desde-la-terminal-sin-ning%C3%BAn-IDE">sección sobre como ejecutar los tests desde la terminal</a></p>
+</div><h2 id="Desarrollo-dirigido-por-pruebas"><a class="anchor hidden-xs" href="#Desarrollo-dirigido-por-pruebas" title="Desarrollo-dirigido-por-pruebas"><span class="octicon octicon-link"></span></a>Desarrollo dirigido por pruebas</h2><p>El TDD <em>(Test Driven Development)</em> es una práctica de desarrollo de software que se basa en realizar las pruebas antes del código. Al principio esas pruebas fallarán (al no haber código que comprobar), por lo que el siguiente paso es escribir el código que haga que las pruebas se ejecuten satisfactoriamente. El último paso consiste en refactorizar el código de forma que quede limpio y eficiente.</p><p>En síntesis:</p><ol>
+<li>Escribir las pruebas</li>
+<li>Verificar que las pruebas fallan (para saber que lo que estamos probando no ha sido implementado antes)</li>
+<li>Escribir el código que hace que las pruebas se ejecuten correctamente</li>
+<li>Verificar que ahora las pruebas se ejecutan correctamente</li>
+<li>Refactorizar</li>
+</ol><p>Con esta práctica nos obligamos a hacer un correcto diseño del programa antes de empezar a escribir, algo que no es recomendado aunque muchos lo hayamos hecho más de una vez.</p><p>Por otro lado, también nos permite centrarnos en el problema principal. Es decir, cuando vamos a crear un método intervienen cosas como el manejo de excepciones, pero esto no es su tarea principal. Siguiendo los pasos en el desarrollo de estas pruebas las excepciones se manejarían en el apartado de refactorización.</p><p>Aunque no es obligatorio, es común utilizarlo con pruebas unitarias. De está forma se fomenta que todo el código se encuentre bajo el control de las pruebas.</p><h2 id="Referencias"><a class="anchor hidden-xs" href="#Referencias" title="Referencias"><span class="octicon octicon-link"></span></a>Referencias</h2><ul>
 <li><a href="https://apiumhub.com/es/tech-blog-barcelona/beneficios-de-las-pruebas-unitarias/" target="_blank" rel="noopener">Beneficios de las pruebas unitarias</a></li>
 <li><a href="https://blog.codefx.org/design/architecture/junit-5-architecture-jupiter/#JUnit-5" target="_blank" rel="noopener">Explicación de la arquitectura de JUnit 5: ¿por qué está dividido en tres módulos?</a></li>
-<li><a href="https://junit.org/junit5/docs/5.0.0/api/org/junit/jupiter/api/package-summary.html" target="_blank" rel="noopener">API de JUnit 5 [HTML]</a></li>
-<li><a href="https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html" target="_blank" rel="noopener">Como empezar rápidamente un proyecto de Maven usando la terminal</a></li>
+<li><a href="https://junit.org/junit5/docs/current/api/org/junit/jupiter/api/package-summary.html" target="_blank" rel="noopener">API de JUnit 5 [HTML]</a></li>
+<li><a href="https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html" target="_blank" rel="noopener">Cómo empezar rápidamente un proyecto de Maven usando la terminal</a></li>
 <li><a href="https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api/5.4.0" target="_blank" rel="noopener">Dependencias en Maven de la API de JUnit Jupiter (artefactos)</a></li>
+<li><a href="https://es.wikipedia.org/wiki/Desarrollo_guiado_por_pruebas#Ventajas" target="_blank" rel="noopener">Desarrollo dirigido por pruebas</a></li>
+<li><a href="https://docs.oracle.com/javase/tutorial/java/annotations/" target="_blank" rel="noopener">Información sobre las anotaciones</a></li>
+<li><a href="https://github.com/ULL-ESIT-INF-PAI-1819/ull-esit-inf-pai-1819-project-junit" target="_blank" rel="noopener">Repositorio con todos los ejemplos</a></li>
 </ul><hr class="footnotes-sep"><section class="footnotes">
 <ol class="footnotes-list">
-<li id="fn1" class="footnote-item"><p>Consulte la <a href="https://junit.org/junit5/docs/5.0.0/api/org/junit/jupiter/api/package-summary.html" target="_blank" rel="noopener">API de JUnit 5</a> para más información. <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+<li id="fn1" class="footnote-item"><p>Consulte la <a href="https://junit.org/junit5/docs/current/api/org/junit/jupiter/api/package-summary.html" target="_blank" rel="noopener">API de JUnit 5</a> para más información. <a href="#fnref1" class="footnote-backref">↩︎</a></p>
 </li>
 </ol>
-</section></div>
+</section><div dir="ltr" class="resize-sensor" style="position: absolute; left: -10px; top: -10px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden;"><div class="resize-sensor-expand" style="position: absolute; left: -10px; top: -10px; right: 0; bottom: 0; overflow: hidden; z-index: -1; visibility: hidden;"><div style="position: absolute; left: 0px; top: 0px; transition: all 0s ease 0s; width: 100000px; height: 100000px;"></div></div><div class="resize-sensor-shrink" style="position: absolute; left: -10px; top: -10px; right: 0; bottom: 0; overflow: hidden; z-index: -1; visibility: hidden;"><div style="position: absolute; left: 0; top: 0; transition: 0s; width: 200%; height: 200%"></div></div></div></div>
     <div class="ui-toc dropup unselectable hidden-print" style="display:none;">
         <div class="pull-right dropdown">
             <a id="tocLabel" class="ui-toc-label btn btn-default" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" title="Table of content">
@@ -118,18 +522,19 @@ Class<span class="token punctuation">[</span><span class="token punctuation">]</
             <ul id="ui-toc" class="ui-toc-dropdown dropdown-menu" aria-labelledby="tocLabel">
                 <div class="toc"><ul class="nav">
 <li class=""><a href="#JUnit" title="JUnit">JUnit</a><ul class="nav">
-<li class=""><a href="#Contenido" title="Contenido">Contenido</a></li>
-<li class=""><a href="#Pruebas-unitarias" title="Pruebas unitarias">Pruebas unitarias</a></li>
-<li class=""><a href="#¿Qué-es-JUnit" title="¿Qué es JUnit?">¿Qué es JUnit?</a></li>
-<li class=""><a href="#¿Cómo-está-estructurado-JUnit-v5" title="¿Cómo está estructurado JUnit v5?">¿Cómo está estructurado JUnit v5?</a></li>
+<li><a href="#Contenido" title="Contenido">Contenido</a></li>
+<li><a href="#Pruebas-unitarias" title="Pruebas unitarias">Pruebas unitarias</a></li>
+<li><a href="#¿Qué-es-JUnit" title="¿Qué es JUnit?">¿Qué es JUnit?</a></li>
+<li><a href="#¿Cómo-está-estructurado-JUnit-v5" title="¿Cómo está estructurado JUnit v5?">¿Cómo está estructurado JUnit v5?</a></li>
 <li><a href="#Como-ejecutar-los-tests-desde-la-terminal-sin-ningún-IDE" title="Como ejecutar los tests desde la terminal, sin ningún IDE">Como ejecutar los tests desde la terminal, sin ningún IDE</a></li>
-<li><a href="#Cómo-se-escribe-un-test" title="Cómo se escribe un test">Cómo se escribe un test</a><ul class="nav">
+<li class=""><a href="#Cómo-se-escribe-un-test" title="Cómo se escribe un test">Cómo se escribe un test</a><ul class="nav">
 <li><a href="#Aserciones" title="Aserciones">Aserciones</a></li>
-<li><a href="#Anotaciones" title="Anotaciones">Anotaciones</a></li>
 <li><a href="#Asunciones" title="Asunciones">Asunciones</a></li>
+<li class=""><a href="#Anotaciones" title="Anotaciones">Anotaciones</a></li>
 <li><a href="#Salida" title="Salida">Salida</a></li>
 </ul>
 </li>
+<li><a href="#Desarrollo-dirigido-por-pruebas" title="Desarrollo dirigido por pruebas">Desarrollo dirigido por pruebas</a></li>
 <li><a href="#Referencias" title="Referencias">Referencias</a></li>
 </ul>
 </li>
@@ -141,18 +546,19 @@ Class<span class="token punctuation">[</span><span class="token punctuation">]</
     <div id="ui-toc-affix" class="ui-affix-toc ui-toc-dropdown unselectable hidden-print" data-spy="affix" style="top:17px;display:none;"  >
         <div class="toc"><ul class="nav">
 <li class=""><a href="#JUnit" title="JUnit">JUnit</a><ul class="nav">
-<li class=""><a href="#Contenido" title="Contenido">Contenido</a></li>
-<li class=""><a href="#Pruebas-unitarias" title="Pruebas unitarias">Pruebas unitarias</a></li>
-<li class=""><a href="#¿Qué-es-JUnit" title="¿Qué es JUnit?">¿Qué es JUnit?</a></li>
-<li class=""><a href="#¿Cómo-está-estructurado-JUnit-v5" title="¿Cómo está estructurado JUnit v5?">¿Cómo está estructurado JUnit v5?</a></li>
+<li><a href="#Contenido" title="Contenido">Contenido</a></li>
+<li><a href="#Pruebas-unitarias" title="Pruebas unitarias">Pruebas unitarias</a></li>
+<li><a href="#¿Qué-es-JUnit" title="¿Qué es JUnit?">¿Qué es JUnit?</a></li>
+<li><a href="#¿Cómo-está-estructurado-JUnit-v5" title="¿Cómo está estructurado JUnit v5?">¿Cómo está estructurado JUnit v5?</a></li>
 <li><a href="#Como-ejecutar-los-tests-desde-la-terminal-sin-ningún-IDE" title="Como ejecutar los tests desde la terminal, sin ningún IDE">Como ejecutar los tests desde la terminal, sin ningún IDE</a></li>
-<li><a href="#Cómo-se-escribe-un-test" title="Cómo se escribe un test">Cómo se escribe un test</a><ul class="nav">
+<li class=""><a href="#Cómo-se-escribe-un-test" title="Cómo se escribe un test">Cómo se escribe un test</a><ul class="nav">
 <li><a href="#Aserciones" title="Aserciones">Aserciones</a></li>
-<li><a href="#Anotaciones" title="Anotaciones">Anotaciones</a></li>
 <li><a href="#Asunciones" title="Asunciones">Asunciones</a></li>
+<li class=""><a href="#Anotaciones" title="Anotaciones">Anotaciones</a></li>
 <li><a href="#Salida" title="Salida">Salida</a></li>
 </ul>
 </li>
+<li><a href="#Desarrollo-dirigido-por-pruebas" title="Desarrollo dirigido por pruebas">Desarrollo dirigido por pruebas</a></li>
 <li><a href="#Referencias" title="Referencias">Referencias</a></li>
 </ul>
 </li>

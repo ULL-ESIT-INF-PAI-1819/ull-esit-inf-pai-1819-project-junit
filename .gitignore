@@ -11,3 +11,4 @@
 *.toc
 /.metadata/
 .DS_Store
+/bin/

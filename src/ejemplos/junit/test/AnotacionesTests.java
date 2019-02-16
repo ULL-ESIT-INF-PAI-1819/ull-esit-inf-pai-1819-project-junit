@@ -2,6 +2,7 @@ package ejemplos.junit.test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assumptions.assumeTrue;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -32,6 +33,7 @@ public class AnotacionesTests {
 
     @Test
     public void testDeEjemplo() {
+        assumeTrue(false);
         assertTrue(true);
     }
 
