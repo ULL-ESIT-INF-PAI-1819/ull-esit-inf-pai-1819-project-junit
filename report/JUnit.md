@@ -135,7 +135,7 @@ void comprobacionesDeIgualdades() {
 
 El funcionamiento de `assertArrayEquals()` es muy similar a `assertEquals`, pero en vez de trabajar con un único valor trabajamos con un array de valores. Es decir, los arrays tienen que contener los mismos elementos en las mismas posiciones. Esos valores pueden ser de cualquier tipo primitivo o de la clase `Object`.
 
-Por otro lado, `assertIterableEquals()` hace lo mismo pero funciona con `Iterable<>`. Esto cuenta con la ventaja de que los dos objetos no tienen que ser necesariamente iguales, pueden ser dos clases diferentes derivadas de `Iterable<>`.
+Por otro lado, `assertIterableEquals()` hace lo mismo pero funciona con `Iterable<>`. Esto cuenta con la ventaja de que los dos objetos no tienen que ser necesariamente iguales, pueden ser dos clases diferentes que implementen `Iterable<>`.
 
 ```java
 @Test
@@ -145,7 +145,7 @@ void comprobacionesDeIgualdades() {
     int[] c = {1,2,3};
     assertArrayEquals(b,c);
 
-    List<String> primerIterable = new ArrayList<>();
+    ArrayList<String> primerIterable = new ArrayList<>();
     primerIterable.add("abc");
     primerIterable.add("segundaPalabra");
     primerIterable.add("última comprobación");
@@ -550,7 +550,7 @@ Por debajo de ese panel se muestra la traza de errores que se han producido dura
 
 #### Terminal
 
-La salida por terminal se parece bastante también a la que JUnit muestra. En general, al ejecutar la plataforma, esta buscará los tests que estén disponibles y compilados en determinada carpeta (en el árbol se puede identificar incluso si los tests están escritos para Jupiter o si por el contrario están escritos en versiones anteriores de JUnit y deben ejecutarse con Vintage).
+La salida por terminal se parece bastante también a la que Eclipse muestra. En general, al ejecutar la plataforma, esta buscará los tests que estén disponibles y compilados en determinada carpeta (en el árbol se puede identificar incluso si los tests están escritos para Jupiter o si por el contrario están escritos en versiones anteriores de JUnit y deben ejecutarse con Vintage).
 
 También son detectadas las clases principales y las anidadas, que muestra como contenedores al igual que los módulos antes descritos (en azul claro en este caso). Los tests que han fallado se muestran en rojo, los desactivados en violeta, los que no han cumplido alguna asunción se muestran en amarillo y los que se han ejecutado correctamente se muestran en azul (con el `[OK]` verde al lado).
 
