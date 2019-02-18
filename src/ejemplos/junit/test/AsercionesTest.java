@@ -7,19 +7,17 @@ import static org.junit.jupiter.api.Assumptions.assumingThat;
 
 import java.time.Duration;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Vector;
-import java.util.concurrent.atomic.AtomicInteger;
 
 import org.junit.jupiter.api.Test;
 
-class AssertionsTest {
-
+class AsercionesTest {
+	
 	@Test
 	void comprobacionesConMensajesDeError() {
 		assertTrue(true);
-		assertTrue(true,"Esto está mal");
-		assertTrue(false,() -> "Esto está mal, pero con supplier.");
+		assertTrue(true, "Esto está mal");
+		assertTrue(false, () -> "Esto está mal, pero con supplier.");
 	}
 	
 	@Test
@@ -46,14 +44,15 @@ class AssertionsTest {
 		assertNotEquals(5, 7);
 		
 		String a = "prueba";
-		assertSame(a, a);
+		String d = a;
+		assertSame(a, d);
 		assertNotSame(a, new String("prueba"));
 		
 		int[] b = {1,2,3};
 		int[] c = {1,2,3};
 		assertArrayEquals(b,c);
 		
-		List<String> primerIterable = new ArrayList<>();
+		ArrayList<String> primerIterable = new ArrayList<>();
 		primerIterable.add("abc");
 		primerIterable.add("segundaPalabra");
 		primerIterable.add("última comprobación");
@@ -87,7 +86,7 @@ class AssertionsTest {
 				total += i;
 				//System.out.println(i);
 			}
-		});
+		}); 
 		assertTimeoutPreemptively(Duration.ofMillis(500), () -> {
 			int total = 0;
 			for(int i = 0; i < 2147483647; i++) {
@@ -113,7 +112,7 @@ class AssertionsTest {
 	@Test 
 	void asuncionesBooleanas() {
 		assumeTrue(true);
-		assumeFalse(false);
+		assumeFalse(true);
 		
 		assertNull(null);
 	}
