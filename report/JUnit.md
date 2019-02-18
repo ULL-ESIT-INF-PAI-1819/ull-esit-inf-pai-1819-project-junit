@@ -30,9 +30,9 @@ La versión más reciente de JUnit divide el framework en tres paquetes distinto
 - **JUnit Vintage.** Igual que Jupiter pero para tests escritos con versiones anteriores de JUnit.
 - **JUnit Platform.** Es la base de JUnit. Presta soporte para la implementación de motores que ejecuten alguna clase de tests.
 
-:::info
-<center> Eclipse viene con JUnit integrado </center>
-:::
+<div style="background-color:#D9EDF7;padding:10px"> 
+	<center> Eclipse viene con JUnit integrado </center>  
+</div>
 
 ## Como ejecutar los tests desde la terminal, sin ningún IDE
 
@@ -44,11 +44,12 @@ java -jar junit-platform-console-standalone-1.4.0.jar -cp <bin> --scan-classpath
 
 donde `<bin>` es el directorio que contiene las clases de los tests ya compiladas.
 
-:::warning
-<center><b>JUnit necesita que las pruebas estén compiladas</b></center> <br/>
-
-De modo que en `bin/` o en otro cualquier directorio (o en algunos de los subdirectorios del proyecto, porque el comando funciona de manera recursiva) deben estar los ficheros `.class` de las respectivas clases.
-:::
+<div style="background-color:#D9EDF7;padding:10px"> 
+	<center><b>JUnit necesita que las pruebas estén compiladas</b></center> <br/>
+    De modo que en <code>bin/</code> o en otro cualquier directorio (o en algunos de los
+    subdirectorios del proyecto, porque el comando funciona de manera recursiva) deben 
+    estar los ficheros <code>.class</code> de las respectivas clases.
+</div>
 
 Es muy importante que la notación sea la adecuada: por norma general es que la clase debe empezar por `Test` o acabar por `Test`. JUnit se puede configurar (con expresiones regulares) para que tenga en cuentra otro tipo de nomenclaturas, pero esas son las que vienen por defecto. Para más información consulte la ayuda del comando (`java -jar junit-platform-console-standalone-1.4.0.jar -h`).
 
@@ -275,10 +276,14 @@ Para declarar una anotación se coloca un @ antes del nombre.
 
 En el caso de JUnit se utilizan las etiquetas para configurar los tests. Ahora veremos el funcionamiento de las más importantes.
 
-:::info
-<center><b>Anotaciones experimentales</b></center> <br/>
-Hay muchas etiquetas de JUnit que se encuentran en estado experimental, y son las que faltan mayormente en este informe. Para buscarlas recomendamos identificar las anotaciones en la documentación de JUnit y luego buscar la información en la api, ya que en la api se encuentran separadas de las estables. Además, la api mostrará información adicional sobre como deben ser declarados los métodos para cada etiqueta.
-:::
+<div style="background-color:#D9EDF7;padding:10px"> 
+	<center><b>Anotaciones experimentales</b></center> <br/>
+	Hay muchas etiquetas de JUnit que se encuentran en estado experimental, y son las que 
+	faltan mayormente en este informe. Para buscarlas recomendamos identificar las anotaciones 
+	en la documentación de JUnit y luego buscar la información en la api, ya que en la api se 
+	encuentran separadas de las estables. Además, la api mostrará información adicional sobre como 
+	deben ser declarados los métodos para cada etiqueta.  
+</div>
 
 #### Tests
 
@@ -290,10 +295,8 @@ public void testDeEjemplo() {
     assertTrue(true);
 }
 ```
-   
-#### Tests parametrizados 
 
-<!-- Revisar -->
+#### Tests parametrizados 
 
 También específica que un método es una prueba. En este caso nos permite ejecutar dicha prueba más de una vez con el uso de parámetros distintos. 
 
@@ -312,11 +315,9 @@ Tipo de valores | Nomenclatura
 `String[] `|` strings`
 `Class[] `|` classes`
 
-
-:::info
-Consulta la API de JUnit en el apartado [*Source of Arguments*](https://junit.org/junit5/docs/current/user-guide/#writing-tests-parameterized-tests-sources) para ver otras maneras de dar valores a los parámetros de los tests.
-:::
-
+<div style="background-color:#D9EDF7;padding:10px"> 
+	Consulta la API de JUnit en el apartado <a href="https://junit.org/junit5/docs/current/user-guide/#writing-tests-parameterized-tests-sources">Source of Arguments</a> para ver otras maneras de dar valores a los parámetros de los tests.
+</div>
 Un par de ejemplos simples:
 
 ```java
@@ -384,12 +385,12 @@ public Stream<DynamicTest> testsDinamicos() {
 
 JUnit nos proporciona algunas anotaciones para ejecutar instrucciones antes y después de las pruebas. Además, también nos permite decidir si ejecutarlas una vez antes de cada una de las pruebas o una única vez. Son las siguientes:
 
-Anotación       | Descripción
-------------    | ------------
-`@BeforeAll`    | Ejecuta el método una única vez antes de los tests.
+Anotación                     | Descripción
+--------------------------  | ------------------------
+`@BeforeAll`      | Ejecuta el método una única vez antes de los tests.
 `@BeforeEach`   | Ejecuta el método antes de ejecutar cada uno de los tests.
-`@AfterAll`     | Ejecuta el método una única vez después de ejecutar todos los tests.
-`@AfterEach`    | Ejecuta el método después de ejecutar cada uno de los tests.
+`@AfterAll`    	  | Ejecuta el método una única vez después de ejecutar todos los tests.
+`@AfterEach`      | Ejecuta el método después de ejecutar cada uno de los tests.
 
 ```java
 // Este método se ejecutará para todos los métodos marcados como
@@ -401,10 +402,9 @@ void antesDeCadaUno(TestInfo info) {
 }
 ```
 
-:::warning
-Los métodos que lleven la anotación `@BeforeAll` o `@AfterAll` deben ser declarados estáticos.
-:::
-
+<div style="background-color:#FFE084;padding:10px">
+Los métodos que lleven la anotación <code>@BeforeAll</code> o <code>@AfterAll</code> deben ser declarados estáticos.
+</div>
 ```java
 @AfterAll
 static void alFinalDeTodos() {
@@ -466,24 +466,25 @@ En general, y de manera simplificada, una etiqueta:
 - no debe tener caracteres de control ISO,
 - no debe tener ninguno de los siguientes caracteres reservados:
 
-    Símbolo   | Descripción
-    --------- | -----------
-    `,`       | coma
-    `(`       | paréntesis izquierdo 
-    `)`       | paréntesis derecho
-    `&`       | ampersand
-    `|`       | barra vertical
-    `!`       | signo de exclamación
+    Símbolo   | Descripción    
+    ---------      | -----------
+    `,`           | coma
+    `(`           | paréntesis izquierdo 
+    `)`           | paréntesis derecho
+    `&`           | ampersand
+    `|`           | barra vertical
+    `!`           | signo de exclamación
     
+
 El motivo por el que estos caracteres están reservados es porque sirven de operadores lógicos para decidir que tests queremos ejecutar.
 
 Este es un ejemplo que hemos extraído y traducido de la API:
 
-Expresión      | Tests seleccionados
--------------- | -------------------
-`producto`     | todos los test que tengan la etiqueta `producto`
-`catalogo | enviar` | todo los test marcados con `catalogo` **o** `enviar`
-`catalogo & enviar` | todo los test marcados con `catalogo` **y** `enviar`
+Expresión                                          | Tests seleccionados
+---------------------------------------- | -------------------
+`producto`                                 | todos los test que tengan la etiqueta `producto`
+`catalogo | enviar`      | todo los test marcados con `catalogo` **o** `enviar`
+`catalogo & enviar`      | todo los test marcados con `catalogo` **y** `enviar`
 `producto & !puerta-a-puerta` | todos los test marcados con `producto` pero no `puerta-a-puerta`
 `(pequeño | rápido) & (producto | enviar)` | todos los tests marcados con `pequeño` o `rápido` que además estén marcados con `producto` o `enviar`.
 
@@ -509,7 +510,7 @@ public void otroTestMas1() {
 public void otroTestMas2() {
     assertTrue(!false);
 }
-``` 
+```
 
 ### Salida
 
@@ -517,18 +518,18 @@ public void otroTestMas2() {
 
 Eclipse tiene un panel izquierdo en el que se muestran los tests descubiertos junto con el resultado de su ejecución. En este caso los principales son:
 
-Símbología / Color | Descripción
---                 | --
-Gris               | Test desactivado (cuenta como *skipped)*
+Símbología / Color               | Descripción
+-----------------------                  | ----------
+Gris              		              | Test desactivado (cuenta como *skipped)*
 Papel con símbolo de abortado gris | Asunción fallida (cuenta como *skipped)*
-Verde              | Test correcto
-Amarillo con cruz azul | Test fallido
-Rojo               | Test no escrito correctamente
-Hoja de papel      | Representa una agrupación de tests, ya sea porque son tests parametrizados o porque están dentro de una clase anidada. La cruz que aparecerá depende de si todos los tests se ejecutaron correctamente (verde) o si hubo fallos (azul)
+Verde             		           | Test correcto
+Amarillo con cruz azul	  | Test fallido
+Rojo               		      	  | Test no escrito correctamente
+Hoja de papel                         | Representa una agrupación de tests, ya sea porque son tests parametrizados o porque están dentro de una clase anidada. La cruz que aparecerá depende de si todos los tests se ejecutaron correctamente (verde) o si hubo fallos (azul)
 
-:::warning
-<center> Los íconos dependen del tema empleado </center>
-:::
+<div style="background-color:#FFE084;padding:10px">
+	<center> Los íconos dependen del tema empleado </center>
+</div>
 
 En algunas ocasiones Eclipse puede mostrar unas líneas amarillas, especialmente en condicionales, con el mensaje "3 of 4 branches missed", por ejemplo. Significa que no se han probado todos los valores de los booleanos en cuestión:
 
@@ -546,7 +547,7 @@ En el snippet de código anterior, para que todas las ramas se ejecutasen el có
 
 Por debajo de ese panel se muestra la traza de errores que se han producido durante la ejecución de los tests: ya sea porque los tests han fallado (es decir, porque no se ha recibido el resultado esperado), o porque se ha producido un error de compilación (es decir, que los tests están mal escritos).
 
-![](https://i.imgur.com/634ToO7.png =325x) ![](https://i.imgur.com/bGHNABx.png =325x)
+![](https://i.imgur.com/634ToO7.png =300x) ![](https://i.imgur.com/bGHNABx.png =330x)
 
 #### Terminal
 
@@ -574,9 +575,9 @@ Sobre el resumen final de ejecución:
     - *successful:* tests que pasaron correctamente.
     - *failed:* tests que fallaron.
 
-:::info
-Consulte la [sección sobre como ejecutar los tests desde la terminal](#Como-ejecutar-los-tests-desde-la-terminal-sin-ningún-IDE)
-:::
+<div style="background-color:#D9EDF7;padding:10px"> 
+	Consulte la sección sobre como ejecutar los tests desde la terminal.
+</div>
 
 ## Desarrollo dirigido por pruebas
 
@@ -596,6 +597,10 @@ Por otro lado, también nos permite centrarnos en el problema principal. Es deci
 
 Aunque no es obligatorio, es común utilizarlo con pruebas unitarias. De está forma se fomenta que todo el código se encuentre bajo el control de las pruebas.
 
+<div style="background-color:#D9EDF7;padding:10px"> 
+	Aquí encontrarán un <a href="https://github.com/cruzelante098/pai-tdd-ejemplo">repositorio que contiene un programa en Java cuyo proceso de desarrollo es TDD</a>, donde se ve que implementa cada uno de los commits.
+</div>
+
 ## Referencias
 
 - [Beneficios de las pruebas unitarias](https://apiumhub.com/es/tech-blog-barcelona/beneficios-de-las-pruebas-unitarias/)
@@ -606,6 +611,7 @@ Aunque no es obligatorio, es común utilizarlo con pruebas unitarias. De está f
 - [Desarrollo dirigido por pruebas](https://es.wikipedia.org/wiki/Desarrollo_guiado_por_pruebas#Ventajas)
 - [Información sobre las anotaciones](https://docs.oracle.com/javase/tutorial/java/annotations/)
 - [Repositorio con todos los ejemplos](https://github.com/ULL-ESIT-INF-PAI-1819/ull-esit-inf-pai-1819-project-junit)
+- [Ejemplo de TDD](https://github.com/cruzelante098/pai-tdd-ejemplo)
 
 
 [^consultar_API]: Consulte la [API de JUnit 5](https://junit.org/junit5/docs/current/api/org/junit/jupiter/api/package-summary.html) para más información.
