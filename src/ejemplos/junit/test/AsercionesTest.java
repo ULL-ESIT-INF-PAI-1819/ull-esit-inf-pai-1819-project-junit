@@ -16,7 +16,7 @@ class AsercionesTest {
 	@Test
 	void comprobacionesConMensajesDeError() {
 		assertTrue(true);
-		assertTrue(true, "Esto está mal");
+		assertTrue(false, "Esto está mal");
 		assertTrue(false, () -> "Esto está mal, pero con supplier.");
 	}
 	
