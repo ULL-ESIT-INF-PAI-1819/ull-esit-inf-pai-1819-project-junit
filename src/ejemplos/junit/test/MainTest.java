@@ -29,7 +29,7 @@ class MainTest {
     @DisplayName("Test: diferentes")
     @Test
     void testIguales() {
-    	assumeTrue(false, "pues va a ser que no");
+        assumeTrue(false, "pues va a ser que no");
         assertNotEquals(5, 10);
     }
 
@@ -67,28 +67,28 @@ class MainTest {
 
     @AfterEach
     void alFinalDeCadaTest() {
-        System.out.println("Despu�s de test");
+        System.out.println("Después de test");
     }
 
     @AfterAll
     static void alFinalDeTodosLosTests() {
         System.out.println("Final de todos los tests");
     }
-    
+
     @Nested
     class nestedTest {
-    	@DisplayName("Test: iguales")
+
+        @DisplayName("Test: iguales")
         @Test
         void testIguales2() {
             assertEquals(5, 5, "ejemplo");
         }
-    	
-    	@DisplayName("Test: diferentes")
+
+        @Disabled
+        @DisplayName("Test: diferentes")
         @Test
         void testNoIguales2() {
             assertNotEquals(5, 5, "ejemplo");
         }
     }
-
-    // TODO: mirar @TestFactory y @TestTemplate
 }

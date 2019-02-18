@@ -10,5 +10,5 @@
 *.snm 
 *.toc
 /.metadata/
-/bin/
 .DS_Store
+/bin/
